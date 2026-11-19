@@ -1,0 +1,54 @@
+{
+  "frame": {
+    "width": 52,
+    "height": 54
+  },
+  "facing": "back",
+  "texture_filter": "nearest",
+  "heroes": [
+    {
+      "id": "warrior",
+      "label": "Воин",
+      "variant": 1,
+      "source_id": "guard_1",
+      "image": "warrior.png",
+      "anchor": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "mage",
+      "label": "Маг",
+      "variant": 3,
+      "source_id": "mage_3",
+      "image": "mage.png",
+      "anchor": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "archer",
+      "label": "Лучник",
+      "variant": 2,
+      "source_id": "archer_2",
+      "image": "archer.png",
+      "anchor": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "healer",
+      "label": "Лекарь",
+      "variant": 2,
+      "source_id": "healer_2",
+      "image": "healer.png",
+      "anchor": {
+        "x": 26,
+        "y": 48
+      }
+    }
+  ]
+}

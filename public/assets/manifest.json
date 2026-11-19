@@ -1,0 +1,337 @@
+{
+  "viewport": {
+    "width": 480,
+    "height": 270
+  },
+  "texture_filter": "nearest",
+  "images": [
+    {
+      "key": "enemies/brute",
+      "url": "assets/enemies/brute.png",
+      "width": 52,
+      "height": 51,
+      "alpha": true
+    },
+    {
+      "key": "enemies/goblin",
+      "url": "assets/enemies/goblin.png",
+      "width": 34,
+      "height": 28,
+      "alpha": true
+    },
+    {
+      "key": "enemies/sprout",
+      "url": "assets/enemies/sprout.png",
+      "width": 28,
+      "height": 23,
+      "alpha": true
+    },
+    {
+      "key": "heroes/archer",
+      "url": "assets/heroes/archer.png",
+      "width": 52,
+      "height": 54,
+      "alpha": true
+    },
+    {
+      "key": "heroes/healer",
+      "url": "assets/heroes/healer.png",
+      "width": 52,
+      "height": 54,
+      "alpha": true
+    },
+    {
+      "key": "heroes/mage",
+      "url": "assets/heroes/mage.png",
+      "width": 52,
+      "height": 54,
+      "alpha": true
+    },
+    {
+      "key": "heroes/warrior",
+      "url": "assets/heroes/warrior.png",
+      "width": 52,
+      "height": 54,
+      "alpha": true
+    },
+    {
+      "key": "props/footbridge",
+      "url": "assets/props/footbridge.png",
+      "width": 167,
+      "height": 45,
+      "alpha": true
+    },
+    {
+      "key": "props/reeds",
+      "url": "assets/props/reeds.png",
+      "width": 23,
+      "height": 27,
+      "alpha": true
+    },
+    {
+      "key": "props/rock_cluster",
+      "url": "assets/props/rock_cluster.png",
+      "width": 35,
+      "height": 21,
+      "alpha": true
+    },
+    {
+      "key": "props/sluice",
+      "url": "assets/props/sluice.png",
+      "width": 79,
+      "height": 49,
+      "alpha": true
+    },
+    {
+      "key": "shadows/archer",
+      "url": "assets/shadows/archer.png",
+      "width": 22,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "shadows/brute",
+      "url": "assets/shadows/brute.png",
+      "width": 42,
+      "height": 7,
+      "alpha": true
+    },
+    {
+      "key": "shadows/goblin",
+      "url": "assets/shadows/goblin.png",
+      "width": 27,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "shadows/guard",
+      "url": "assets/shadows/guard.png",
+      "width": 21,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "shadows/healer",
+      "url": "assets/shadows/healer.png",
+      "width": 23,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "shadows/mage",
+      "url": "assets/shadows/mage.png",
+      "width": 23,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "shadows/sprout",
+      "url": "assets/shadows/sprout.png",
+      "width": 22,
+      "height": 5,
+      "alpha": true
+    },
+    {
+      "key": "ui/action_button",
+      "url": "assets/ui/action_button.png",
+      "width": 30,
+      "height": 24,
+      "alpha": true
+    },
+    {
+      "key": "ui/action_button_active",
+      "url": "assets/ui/action_button_active.png",
+      "width": 30,
+      "height": 24,
+      "alpha": true
+    },
+    {
+      "key": "ui/active_turn",
+      "url": "assets/ui/active_turn.png",
+      "width": 9,
+      "height": 8,
+      "alpha": true
+    },
+    {
+      "key": "ui/icons/fire",
+      "url": "assets/ui/icons/fire.png",
+      "width": 15,
+      "height": 17,
+      "alpha": true
+    },
+    {
+      "key": "ui/icons/potion",
+      "url": "assets/ui/icons/potion.png",
+      "width": 13,
+      "height": 17,
+      "alpha": true
+    },
+    {
+      "key": "ui/icons/shield",
+      "url": "assets/ui/icons/shield.png",
+      "width": 14,
+      "height": 17,
+      "alpha": true
+    },
+    {
+      "key": "ui/icons/sword",
+      "url": "assets/ui/icons/sword.png",
+      "width": 16,
+      "height": 17,
+      "alpha": true
+    },
+    {
+      "key": "world/forest_path",
+      "url": "assets/world/forest_path.png",
+      "width": 480,
+      "height": 270,
+      "alpha": true
+    }
+  ],
+  "font": {
+    "family": "Tiny5",
+    "url": "assets/fonts/Tiny5.ttf",
+    "css": "assets/fonts/fonts.css",
+    "compact_size": 16,
+    "body_size": 24
+  },
+  "world_layers": [
+    {
+      "texture": "world/forest_path",
+      "x": 0,
+      "y": 0,
+      "origin_x": 0,
+      "origin_y": 0
+    },
+    {
+      "texture": "props/sluice",
+      "x": 320,
+      "y": 95,
+      "origin_x": 0,
+      "origin_y": 0
+    },
+    {
+      "texture": "props/footbridge",
+      "x": 158,
+      "y": 159,
+      "origin_x": 0,
+      "origin_y": 0
+    },
+    {
+      "texture": "props/reeds",
+      "x": 110,
+      "y": 168,
+      "origin_x": 0,
+      "origin_y": 0
+    },
+    {
+      "texture": "props/reeds",
+      "x": 332,
+      "y": 162,
+      "origin_x": 0,
+      "origin_y": 0
+    },
+    {
+      "texture": "props/rock_cluster",
+      "x": 363,
+      "y": 198,
+      "origin_x": 0,
+      "origin_y": 0
+    }
+  ],
+  "party": [
+    {
+      "id": "warrior",
+      "label": "Воин",
+      "variant": 1,
+      "texture": "heroes/warrior",
+      "x": 176,
+      "y": 193,
+      "origin_x": 0.5,
+      "origin_y": 0.8888888888888888,
+      "anchor_pixel": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "mage",
+      "label": "Маг",
+      "variant": 3,
+      "texture": "heroes/mage",
+      "x": 219,
+      "y": 193,
+      "origin_x": 0.5,
+      "origin_y": 0.8888888888888888,
+      "anchor_pixel": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "archer",
+      "label": "Лучник",
+      "variant": 2,
+      "texture": "heroes/archer",
+      "x": 262,
+      "y": 193,
+      "origin_x": 0.5,
+      "origin_y": 0.8888888888888888,
+      "anchor_pixel": {
+        "x": 26,
+        "y": 48
+      }
+    },
+    {
+      "id": "healer",
+      "label": "Лекарь",
+      "variant": 2,
+      "texture": "heroes/healer",
+      "x": 305,
+      "y": 193,
+      "origin_x": 0.5,
+      "origin_y": 0.8888888888888888,
+      "anchor_pixel": {
+        "x": 26,
+        "y": 48
+      }
+    }
+  ],
+  "enemies": [
+    {
+      "id": "goblin",
+      "label": "Гоблин",
+      "texture": "enemies/goblin",
+      "x": 176,
+      "y": 133,
+      "origin_x": 0.5,
+      "origin_y": 1
+    },
+    {
+      "id": "brute",
+      "label": "Гриб-броневик",
+      "texture": "enemies/brute",
+      "x": 239,
+      "y": 143,
+      "origin_x": 0.5,
+      "origin_y": 1
+    },
+    {
+      "id": "sprout",
+      "label": "Гриб-лекарь",
+      "texture": "enemies/sprout",
+      "x": 298,
+      "y": 121,
+      "origin_x": 0.5,
+      "origin_y": 1
+    }
+  ],
+  "target": {
+    "platform": "mobile_web",
+    "primary_browser": "chrome_android",
+    "orientation": "landscape",
+    "delivery": "url",
+    "input": "touch",
+    "future_packaging": "capacitor_android"
+  }
+}
