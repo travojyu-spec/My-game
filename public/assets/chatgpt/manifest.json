@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "asset_set": "chatgpt-approved-2026-11-19",
+  "status": "approved",
+  "viewport_reference": {
+    "width": 480,
+    "height": 270
+  },
+  "texture_filter": "nearest",
+  "source_images_preserved": true,
+  "images": [
+    {
+      "key": "cg/heroes/frieren",
+      "url": "assets/chatgpt/heroes/frieren.png",
+      "width": 1159,
+      "height": 1358,
+      "alpha": true,
+      "category": "heroes",
+      "option": 3,
+      "sha256": "edb93caa5ab8e02d4d2441e7a3a9892a8b0f0540b8b6b907d2a65869a8de2909"
+    },
+    {
+      "key": "cg/heroes/fern",
+      "url": "assets/chatgpt/heroes/fern.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "category": "heroes",
+      "option": 3,
+      "sha256": "fc2e3a7b72938af7a2e5764e861a7674509010386a83cb73ccab226bac7ba759"
+    },
+    {
+      "key": "cg/heroes/stark",
+      "url": "assets/chatgpt/heroes/stark.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 1,
+      "sha256": "3561288ae31889a1a9ef5e736721f6e1f5e30687a841bc4a6e7a8da5c9813c64"
+    },
+    {
+      "key": "cg/heroes/megumin",
+      "url": "assets/chatgpt/heroes/megumin.png",
+      "width": 1182,
+      "height": 1330,
+      "alpha": true,
+      "category": "heroes",
+      "option": 2,
+      "sha256": "1fa192cec76848819fd5de72ebc9eb8c3fa39390658848defb76bff92d3c29c6"
+    },
+    {
+      "key": "cg/heroes/goblin_slayer",
+      "url": "assets/chatgpt/heroes/goblin_slayer.png",
+      "width": 1178,
+      "height": 1335,
+      "alpha": true,
+      "category": "heroes",
+      "option": 2,
+      "sha256": "913040cb00bdf52405289ec82ca30ade738825358aed933ddefd0049cc3a42f9"
+    },
+    {
+      "key": "cg/approved/backgrounds/forest_1",
+      "url": "assets/chatgpt/approved/backgrounds/forest_1.png",
+      "width": 480,
+      "height": 270,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "064028ca48ee2929350814e9db9a94172decc4e97209f1318479f4d98eabf70c"
+    },
+    {
+      "key": "cg/approved/backgrounds/forest_2",
+      "url": "assets/chatgpt/approved/backgrounds/forest_2.png",
+      "width": 480,
+      "height": 270,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "164248f097eb5ada4f97640a414baca5c9fe1fbfa0180f71be0bd134542cfd2e"
+    },
+    {
+      "key": "cg/approved/backgrounds/forest_3",
+      "url": "assets/chatgpt/approved/backgrounds/forest_3.png",
+      "width": 480,
+      "height": 270,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "0debe39bd42e233406a5e34fc9329e48ce450dacdc4054380e3d7ac9c2f90593"
+    },
+    {
+      "key": "cg/approved/enemies/brute_1",
+      "url": "assets/chatgpt/approved/enemies/brute_1.png",
+      "width": 46,
+      "height": 50,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "836e22579b53203b7532479fafa995c9dc98966312d006cd2dee3e0e34b8ea89"
+    },
+    {
+      "key": "cg/approved/enemies/brute_2",
+      "url": "assets/chatgpt/approved/enemies/brute_2.png",
+      "width": 50,
+      "height": 47,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "d56e08d6658ffa936d7ce8c5699b0f1a17fba77b5ae4ab84e7b81ae4b3580ae9"
+    },
+    {
+      "key": "cg/approved/enemies/brute_3",
+      "url": "assets/chatgpt/approved/enemies/brute_3.png",
+      "width": 50,
+      "height": 48,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "5cf710f7d4d2f2c1b65f55cd381e2d859597637cf51399f6ae5ef18d874b376e"
+    },
+    {
+      "key": "cg/approved/enemies/goblin_2",
+      "url": "assets/chatgpt/approved/enemies/goblin_2.png",
+      "width": 34,
+      "height": 32,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "344f1243683b7b0a7dec4c21b3301bf51fa986b6769cf3b70c548830a664ebc3"
+    },
+    {
+      "key": "cg/approved/enemies/healer_2",
+      "url": "assets/chatgpt/approved/enemies/healer_2.png",
+      "width": 27,
+      "height": 28,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "c441b1016cc9630f68240279e8d481de6538749b7ce51be5ce9c709f6ced64dd"
+    },
+    {
+      "key": "cg/approved/enemies/healer_3",
+      "url": "assets/chatgpt/approved/enemies/healer_3.png",
+      "width": 23,
+      "height": 28,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "e537b2d8a643483ffe757af7d5587e3e5ad007030a33847b333cedce393b54ad"
+    },
+    {
+      "key": "cg/approved/icons/attack_1",
+      "url": "assets/chatgpt/approved/icons/attack_1.png",
+      "width": 15,
+      "height": 18,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "4b1eb5988b0df5bd339dc3b97dcc4572aca03ec877326f1ab91d677d0c917f1b"
+    },
+    {
+      "key": "cg/approved/icons/fire_3",
+      "url": "assets/chatgpt/approved/icons/fire_3.png",
+      "width": 13,
+      "height": 18,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "b2d85ea0e36b1d7defac7963528c9555ab4b1a8db6d51cfdad43990ade9030c2"
+    },
+    {
+      "key": "cg/approved/icons/potion_1",
+      "url": "assets/chatgpt/approved/icons/potion_1.png",
+      "width": 14,
+      "height": 18,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "71d337b598316cf1c4dbe864c106de7f4c6690e4ca7e5d3fc6761b0315f556d5"
+    },
+    {
+      "key": "cg/approved/icons/shield_1",
+      "url": "assets/chatgpt/approved/icons/shield_1.png",
+      "width": 17,
+      "height": 18,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "16f10ac7485279a6f2821a877cbc52df661cb03e11c8da058455bcf6d34c8951"
+    },
+    {
+      "key": "cg/approved/props/crossing_1",
+      "url": "assets/chatgpt/approved/props/crossing_1.png",
+      "width": 145,
+      "height": 84,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "f3dfe8698276a1bfd78f5a80de6ab0682f85b9b1403816ae6bd54a0ef8f5b89a"
+    },
+    {
+      "key": "cg/approved/props/crossing_2",
+      "url": "assets/chatgpt/approved/props/crossing_2.png",
+      "width": 156,
+      "height": 84,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "47af06e96afc085f01112a5676f606fa5060c0293f782d1acda8504cf7fc947f"
+    },
+    {
+      "key": "cg/approved/props/plants_1",
+      "url": "assets/chatgpt/approved/props/plants_1.png",
+      "width": 38,
+      "height": 26,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "757961ee4453c0cb5a73e61702e8673222fb531fe19e35ba9d0394fa2b632655"
+    },
+    {
+      "key": "cg/approved/props/plants_2",
+      "url": "assets/chatgpt/approved/props/plants_2.png",
+      "width": 37,
+      "height": 32,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "0fbbca6a93ec1def327751fe265d462590cba50f1255874653f138962f42978d"
+    },
+    {
+      "key": "cg/approved/props/plants_3",
+      "url": "assets/chatgpt/approved/props/plants_3.png",
+      "width": 38,
+      "height": 28,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "f41fe632e38d10562696faff2c2332791530523737807bc71f01dfcb9aea6bef"
+    },
+    {
+      "key": "cg/approved/props/sluice_1",
+      "url": "assets/chatgpt/approved/props/sluice_1.png",
+      "width": 108,
+      "height": 80,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "7777d443abf3672d04715db9615d4a49db545be3121940a9745d596440f344af"
+    },
+    {
+      "key": "cg/approved/props/sluice_2",
+      "url": "assets/chatgpt/approved/props/sluice_2.png",
+      "width": 110,
+      "height": 80,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "75da8577ce49a2851b2c91365bfb18ce4674c345ad1a1459323344c0e5e85314"
+    },
+    {
+      "key": "cg/approved/props/sluice_3",
+      "url": "assets/chatgpt/approved/props/sluice_3.png",
+      "width": 104,
+      "height": 80,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "86480226b41f4b42c64dd31d88a3ac65343f43b0d157b8e4236bcba697fa64ed"
+    },
+    {
+      "key": "cg/approved/ui/button_1",
+      "url": "assets/chatgpt/approved/ui/button_1.png",
+      "width": 90,
+      "height": 48,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "0523d1d20f58f22fa8ba07c4783ababb387c16c73b04e24f7e471a880cefd9f9"
+    },
+    {
+      "key": "cg/approved/ui/card_1",
+      "url": "assets/chatgpt/approved/ui/card_1.png",
+      "width": 59,
+      "height": 78,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "6e1dcb308843706468c3927cdb8c9d3c5749ef490f95c17906ec94913ddc65a0"
+    },
+    {
+      "key": "cg/approved/ui/window_1",
+      "url": "assets/chatgpt/approved/ui/window_1.png",
+      "width": 126,
+      "height": 94,
+      "alpha": true,
+      "category": "approved",
+      "sha256": "5f370381396cc73856c0ab09fbba4c44031f719396d2e177256b7658c1c2f53a"
+    },
+    {
+      "key": "cg/effects/attack_1",
+      "url": "assets/chatgpt/effects/attack_1.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "4ae7ba5e407035e9d786ac088ca6dc3e5f5166f593c3162457ba39bff5abbcf3"
+    },
+    {
+      "key": "cg/effects/attack_2",
+      "url": "assets/chatgpt/effects/attack_2.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "133a00024df0020e0058b2570cfbf4b0074b732f966de2f3200970c38735655c"
+    },
+    {
+      "key": "cg/effects/fire_1",
+      "url": "assets/chatgpt/effects/fire_1.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "10763ddbbf9e28615b788792aabf38e689f36412cd50849cc959b8466aa075b1"
+    },
+    {
+      "key": "cg/effects/fire_2",
+      "url": "assets/chatgpt/effects/fire_2.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "08b70592a8d4486a9a78355b1a1e44917e8ef25f8e206a1892388f0437bf38bc"
+    },
+    {
+      "key": "cg/effects/guard_1",
+      "url": "assets/chatgpt/effects/guard_1.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "42f28efeb8fe672601127325c8cd5763a99ac4ea635eae49c95e24d12fe8c47d"
+    },
+    {
+      "key": "cg/effects/heal_1",
+      "url": "assets/chatgpt/effects/heal_1.png",
+      "width": 48,
+      "height": 48,
+      "alpha": true,
+      "category": "effects",
+      "sha256": "96c2294bb9d45751b7c86e264b31839db96696f10d7706bf1220f6b0f764e312"
+    }
+  ],
+  "heroes": [
+    {
+      "id": "frieren",
+      "name": "Фрирен",
+      "option": 3,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/frieren_3.png",
+      "file": "public/assets/chatgpt/heroes/frieren.png",
+      "url": "assets/chatgpt/heroes/frieren.png",
+      "texture": "cg/heroes/frieren",
+      "sha256": "edb93caa5ab8e02d4d2441e7a3a9892a8b0f0540b8b6b907d2a65869a8de2909",
+      "width": 1159,
+      "height": 1358,
+      "opaque_bounds": {
+        "x": 228,
+        "y": 61,
+        "width": 778,
+        "height": 1268
+      },
+      "anchor_pixel": {
+        "x": 516,
+        "y": 1328
+      },
+      "origin_x": 0.4452113891285591,
+      "origin_y": 0.9779086892488954
+    },
+    {
+      "id": "fern",
+      "name": "Ферн",
+      "option": 3,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/fern_3.png",
+      "file": "public/assets/chatgpt/heroes/fern.png",
+      "url": "assets/chatgpt/heroes/fern.png",
+      "texture": "cg/heroes/fern",
+      "sha256": "fc2e3a7b72938af7a2e5764e861a7674509010386a83cb73ccab226bac7ba759",
+      "width": 1024,
+      "height": 1536,
+      "opaque_bounds": {
+        "x": 179,
+        "y": 91,
+        "width": 699,
+        "height": 1403
+      },
+      "anchor_pixel": {
+        "x": 458,
+        "y": 1493
+      },
+      "origin_x": 0.447265625,
+      "origin_y": 0.9720052083333334
+    },
+    {
+      "id": "stark",
+      "name": "Старк",
+      "option": 1,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/stark_1.png",
+      "file": "public/assets/chatgpt/heroes/stark.png",
+      "url": "assets/chatgpt/heroes/stark.png",
+      "texture": "cg/heroes/stark",
+      "sha256": "3561288ae31889a1a9ef5e736721f6e1f5e30687a841bc4a6e7a8da5c9813c64",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 245,
+        "y": 100,
+        "width": 752,
+        "height": 1159
+      },
+      "anchor_pixel": {
+        "x": 498,
+        "y": 1258
+      },
+      "origin_x": 0.42310960067969416,
+      "origin_y": 0.9416167664670658
+    },
+    {
+      "id": "megumin",
+      "name": "Мэгумин",
+      "option": 2,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/megumin_2.png",
+      "file": "public/assets/chatgpt/heroes/megumin.png",
+      "url": "assets/chatgpt/heroes/megumin.png",
+      "texture": "cg/heroes/megumin",
+      "sha256": "1fa192cec76848819fd5de72ebc9eb8c3fa39390658848defb76bff92d3c29c6",
+      "width": 1182,
+      "height": 1330,
+      "opaque_bounds": {
+        "x": 212,
+        "y": 86,
+        "width": 822,
+        "height": 1200
+      },
+      "anchor_pixel": {
+        "x": 548,
+        "y": 1284
+      },
+      "origin_x": 0.46362098138747887,
+      "origin_y": 0.9654135338345865
+    },
+    {
+      "id": "goblin_slayer",
+      "name": "Убийца гоблинов",
+      "option": 2,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/goblin_slayer_2.png",
+      "file": "public/assets/chatgpt/heroes/goblin_slayer.png",
+      "url": "assets/chatgpt/heroes/goblin_slayer.png",
+      "texture": "cg/heroes/goblin_slayer",
+      "sha256": "913040cb00bdf52405289ec82ca30ade738825358aed933ddefd0049cc3a42f9",
+      "width": 1178,
+      "height": 1335,
+      "opaque_bounds": {
+        "x": 156,
+        "y": 84,
+        "width": 846,
+        "height": 1206
+      },
+      "anchor_pixel": {
+        "x": 560,
+        "y": 1289
+      },
+      "origin_x": 0.47538200339558573,
+      "origin_y": 0.9655430711610486
+    }
+  ],
+  "font": {
+    "family": "Tiny5",
+    "url": "assets/fonts/Tiny5.ttf",
+    "css": "assets/fonts/fonts.css",
+    "compact_size": 16,
+    "body_size": 24
+  },
+  "approved_visuals_url": "assets/chatgpt/approved_visuals.json",
+  "effects_url": "assets/chatgpt/effects/effects.json",
+  "ui": {
+    "skin": 1,
+    "card": "cg/approved/ui/card_1",
+    "button": "cg/approved/ui/button_1",
+    "window": "cg/approved/ui/window_1",
+    "icons": {
+      "attack": "cg/approved/icons/attack_1",
+      "fire": "cg/approved/icons/fire_3",
+      "protection": "cg/approved/icons/shield_1",
+      "potion": "cg/approved/icons/potion_1"
+    }
+  },
+  "variants": {
+    "enemies/goblin": [
+      "cg/approved/enemies/goblin_2"
+    ],
+    "enemies/brute": [
+      "cg/approved/enemies/brute_1",
+      "cg/approved/enemies/brute_2",
+      "cg/approved/enemies/brute_3"
+    ],
+    "enemies/healer": [
+      "cg/approved/enemies/healer_2",
+      "cg/approved/enemies/healer_3"
+    ],
+    "props/sluice": [
+      "cg/approved/props/sluice_1",
+      "cg/approved/props/sluice_2",
+      "cg/approved/props/sluice_3"
+    ],
+    "props/crossing": [
+      "cg/approved/props/crossing_1",
+      "cg/approved/props/crossing_2"
+    ],
+    "props/plants": [
+      "cg/approved/props/plants_1",
+      "cg/approved/props/plants_2",
+      "cg/approved/props/plants_3"
+    ],
+    "backgrounds/forest": [
+      "cg/approved/backgrounds/forest_1",
+      "cg/approved/backgrounds/forest_2",
+      "cg/approved/backgrounds/forest_3"
+    ],
+    "ui/card": [
+      "cg/approved/ui/card_1"
+    ],
+    "ui/button": [
+      "cg/approved/ui/button_1"
+    ],
+    "ui/window": [
+      "cg/approved/ui/window_1"
+    ],
+    "icons/attack": [
+      "cg/approved/icons/attack_1"
+    ],
+    "icons/fire": [
+      "cg/approved/icons/fire_3"
+    ],
+    "icons/shield": [
+      "cg/approved/icons/shield_1"
+    ],
+    "icons/potion": [
+      "cg/approved/icons/potion_1"
+    ]
+  },
+  "integration_note": "Add this image catalog through src/core/assets.ts and BootScene; it is not a drop-in replacement for the old game-state manifest or balance roster."
+}

@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "status": "approved",
+  "date": "2026-11-19",
+  "scope": "Visual selections; gameplay roles and final active party size are separate configuration",
+  "user_choice": {
+    "frieren": 3,
+    "fern": 3,
+    "stark": 1,
+    "megumin": 2,
+    "goblin_slayer": 2
+  },
+  "source_images": "Original ImageGen PNGs copied byte-for-byte from the corrected full-resolution candidate set",
+  "rejected_processing": "Automatic 64x80 downsampled exports and 32-color quantization were rejected by the user; never use them",
+  "heroes": [
+    {
+      "id": "frieren",
+      "name": "Фрирен",
+      "option": 3,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/frieren_3.png",
+      "file": "public/assets/chatgpt/heroes/frieren.png",
+      "url": "assets/chatgpt/heroes/frieren.png",
+      "texture": "cg/heroes/frieren",
+      "sha256": "edb93caa5ab8e02d4d2441e7a3a9892a8b0f0540b8b6b907d2a65869a8de2909",
+      "width": 1159,
+      "height": 1358,
+      "opaque_bounds": {
+        "x": 228,
+        "y": 61,
+        "width": 778,
+        "height": 1268
+      },
+      "anchor_pixel": {
+        "x": 516,
+        "y": 1328
+      },
+      "origin_x": 0.4452113891285591,
+      "origin_y": 0.9779086892488954
+    },
+    {
+      "id": "fern",
+      "name": "Ферн",
+      "option": 3,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/fern_3.png",
+      "file": "public/assets/chatgpt/heroes/fern.png",
+      "url": "assets/chatgpt/heroes/fern.png",
+      "texture": "cg/heroes/fern",
+      "sha256": "fc2e3a7b72938af7a2e5764e861a7674509010386a83cb73ccab226bac7ba759",
+      "width": 1024,
+      "height": 1536,
+      "opaque_bounds": {
+        "x": 179,
+        "y": 91,
+        "width": 699,
+        "height": 1403
+      },
+      "anchor_pixel": {
+        "x": 458,
+        "y": 1493
+      },
+      "origin_x": 0.447265625,
+      "origin_y": 0.9720052083333334
+    },
+    {
+      "id": "stark",
+      "name": "Старк",
+      "option": 1,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/stark_1.png",
+      "file": "public/assets/chatgpt/heroes/stark.png",
+      "url": "assets/chatgpt/heroes/stark.png",
+      "texture": "cg/heroes/stark",
+      "sha256": "3561288ae31889a1a9ef5e736721f6e1f5e30687a841bc4a6e7a8da5c9813c64",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 245,
+        "y": 100,
+        "width": 752,
+        "height": 1159
+      },
+      "anchor_pixel": {
+        "x": 498,
+        "y": 1258
+      },
+      "origin_x": 0.42310960067969416,
+      "origin_y": 0.9416167664670658
+    },
+    {
+      "id": "megumin",
+      "name": "Мэгумин",
+      "option": 2,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/megumin_2.png",
+      "file": "public/assets/chatgpt/heroes/megumin.png",
+      "url": "assets/chatgpt/heroes/megumin.png",
+      "texture": "cg/heroes/megumin",
+      "sha256": "1fa192cec76848819fd5de72ebc9eb8c3fa39390658848defb76bff92d3c29c6",
+      "width": 1182,
+      "height": 1330,
+      "opaque_bounds": {
+        "x": 212,
+        "y": 86,
+        "width": 822,
+        "height": 1200
+      },
+      "anchor_pixel": {
+        "x": 548,
+        "y": 1284
+      },
+      "origin_x": 0.46362098138747887,
+      "origin_y": 0.9654135338345865
+    },
+    {
+      "id": "goblin_slayer",
+      "name": "Убийца гоблинов",
+      "option": 2,
+      "status": "approved",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/goblin_slayer_2.png",
+      "file": "public/assets/chatgpt/heroes/goblin_slayer.png",
+      "url": "assets/chatgpt/heroes/goblin_slayer.png",
+      "texture": "cg/heroes/goblin_slayer",
+      "sha256": "913040cb00bdf52405289ec82ca30ade738825358aed933ddefd0049cc3a42f9",
+      "width": 1178,
+      "height": 1335,
+      "opaque_bounds": {
+        "x": 156,
+        "y": 84,
+        "width": 846,
+        "height": 1206
+      },
+      "anchor_pixel": {
+        "x": 560,
+        "y": 1289
+      },
+      "origin_x": 0.47538200339558573,
+      "origin_y": 0.9655430711610486
+    }
+  ],
+  "other_visuals": {
+    "enemies/goblin": [
+      2
+    ],
+    "enemies/brute": [
+      1,
+      2,
+      3
+    ],
+    "enemies/healer": [
+      2,
+      3
+    ],
+    "props/sluice": [
+      1,
+      2,
+      3
+    ],
+    "props/crossing": [
+      1,
+      2
+    ],
+    "props/plants": [
+      1,
+      2,
+      3
+    ],
+    "backgrounds/forest": [
+      1,
+      2,
+      3
+    ],
+    "ui/card": [
+      1
+    ],
+    "ui/button": [
+      1
+    ],
+    "ui/window": [
+      1
+    ],
+    "icons/attack": [
+      1
+    ],
+    "icons/fire": [
+      3
+    ],
+    "icons/shield": [
+      1
+    ],
+    "icons/potion": [
+      1
+    ]
+  },
+  "effects": {
+    "attack": [
+      1,
+      2
+    ],
+    "fire": [
+      1,
+      2
+    ],
+    "guard": [
+      1
+    ],
+    "heal": [
+      1
+    ]
+  },
+  "font": {
+    "family": "Tiny5",
+    "url": "assets/fonts/Tiny5.ttf",
+    "css": "assets/fonts/fonts.css",
+    "compact_size": 16,
+    "body_size": 24
+  }
+}
