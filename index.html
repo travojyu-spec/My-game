@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#0f1a10" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Бой у старого шлюза</title>
+    <title>Перекрёсток миров</title>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <style>
@@ -61,7 +61,7 @@
         font-size: 16px;
         line-height: 24px;
         text-align: center;
-        z-index: 10;
+        z-index: 30;
       }
       .overlay h1 {
         margin: 0;
@@ -111,11 +111,12 @@
   </head>
   <body>
     <div id="game"></div>
+    <div id="ui"></div>
     <div id="safe-probe"></div>
     <div id="rotate" class="overlay" role="dialog" aria-label="Поверните телефон">
       <div class="phone"></div>
       <h1>Поверните телефон</h1>
-      <div>Бой рассчитан на горизонтальный экран.</div>
+      <div>Игра рассчитана на горизонтальный экран.</div>
       <button id="rotate-fullscreen" type="button" hidden>Играть на весь экран</button>
     </div>
     <div id="boot" class="overlay"><div id="boot-text">Загрузка…</div></div>

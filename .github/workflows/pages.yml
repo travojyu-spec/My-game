@@ -1,10 +1,11 @@
 # Сборка игры и публикация на GitHub Pages (ветка gh-pages).
-# Запускается при каждом изменении main или вручную со вкладки Actions.
+# main → корень сайта, test → пробная версия в папке /test/.
+# Каждая ветка обновляет только свою часть сайта, другую не трогает.
 name: Публикация на GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, test]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -33,14 +34,26 @@ jobs:
           npm run build
           npm run build:single
           cp dist-single/index.html dist/offline.html
-          touch dist/.nojekyll
 
       - name: Публикация в gh-pages
+        env:
+          REPO: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         run: |
-          cd dist
-          git init -q -b gh-pages
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git clone -q --depth 1 --branch gh-pages "$REPO" site; then :; else
+            mkdir site && cd site && git init -q -b gh-pages && git remote add origin "$REPO" && cd ..
+          fi
+          if [ "${GITHUB_REF_NAME}" = "test" ]; then
+            rm -rf site/test
+            mkdir -p site/test
+            cp -r dist/. site/test/
+          else
+            find site -mindepth 1 -maxdepth 1 ! -name .git ! -name test -exec rm -rf {} +
+            cp -r dist/. site/
+          fi
+          touch site/.nojekyll
+          cd site
           git add -A
-          git commit -q -m "Сайт из ${GITHUB_SHA::7}"
-          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+          git commit -q -m "${GITHUB_REF_NAME}: сайт из ${GITHUB_SHA::7}" || { echo "Без изменений"; exit 0; }
+          git push -q origin HEAD:gh-pages

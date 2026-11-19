@@ -24,6 +24,8 @@ export interface ButtonOptions {
   icon?: string;
   /** Дополнительная невидимая зона касания вокруг кнопки. */
   pad?: number;
+  /** Иконка над подписью (узкие кнопки умений). */
+  stack?: boolean;
   /** Нарисовать содержимое вручную (иконки звука и экрана). */
   draw?: (g: Phaser.GameObjects.Graphics, w: number, h: number) => void;
 }
@@ -43,6 +45,7 @@ export class Button extends Phaser.GameObjects.Container {
   private gfx: Phaser.GameObjects.Graphics | null = null;
   private zone: Phaser.GameObjects.Zone;
   private drawFn?: ButtonOptions['draw'];
+  private stack = false;
   selected = false;
   disabled = false;
 
@@ -50,6 +53,7 @@ export class Button extends Phaser.GameObjects.Container {
     super(scene, 0, 0);
     this.btnW = opts.width;
     this.btnH = opts.height;
+    this.stack = !!opts.stack;
     this.bg = panel(scene, 0, 0, this.btnW, this.btnH);
     this.bgActive = panel(scene, 0, 0, this.btnW, this.btnH, true).setVisible(false);
     this.content = scene.add.container(0, 0);
@@ -89,7 +93,15 @@ export class Button extends Phaser.GameObjects.Container {
     const icon = this.iconImage;
     const label = this.labelText;
     const cy = Math.floor((this.btnH - 1) / 2); // нижний ряд рамки темнее, центр чуть выше
-    if (icon && label) {
+    if (label) {
+      label.setScale(1);
+      const room = this.btnW - 6;
+      if (label.width > room) label.setScale(room / label.width);
+    }
+    if (this.stack && icon && label) {
+      icon.setPosition(Math.round((this.btnW - icon.width) / 2), 4);
+      label.setPosition(Math.round((this.btnW - label.displayWidth) / 2), this.btnH - LINE_16 - 3);
+    } else if (icon && label) {
       const gap = 5;
       const total = icon.width + gap + label.width;
       const x0 = Math.round((this.btnW - total) / 2);

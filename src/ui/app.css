@@ -1,0 +1,482 @@
+/* Экраны между боями: карта, город, герои. Пиксельный шрифт Tiny5 кратно 8 px. */
+#ui {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  display: none;
+  font-family: 'Tiny5', monospace;
+  font-size: 16px;
+  line-height: 20px;
+  color: #3b2414;
+  background: #1d140d;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
+    env(safe-area-inset-left, 0px);
+  box-sizing: border-box;
+}
+#ui.on {
+  display: flex;
+  flex-direction: column;
+}
+#ui * {
+  box-sizing: border-box;
+}
+#ui button {
+  font: inherit;
+  color: #3b2414;
+  background: #f9d992;
+  border: 3px solid #4c301e;
+  border-radius: 4px;
+  box-shadow: 0 3px 0 #291d15;
+  min-height: 40px;
+  padding: 4px 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+#ui button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #291d15;
+}
+#ui button.primary {
+  background: #ffd75a;
+}
+#ui button.danger {
+  background: #e9a08f;
+}
+#ui button:disabled,
+#ui button.off {
+  opacity: 0.5;
+}
+#ui button.small {
+  min-height: 32px;
+  padding: 2px 8px;
+}
+.u-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #2b1d12;
+  color: #f1dcad;
+  border-bottom: 3px solid #120b06;
+  flex: none;
+}
+.u-top .title {
+  font-size: 16px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.u-top .sub {
+  color: #b99a6a;
+}
+.u-gold {
+  color: #ffd75a;
+  white-space: nowrap;
+}
+.u-body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.u-scroll {
+  overflow-y: auto;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.u-bottom {
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #2b1d12;
+  border-top: 3px solid #120b06;
+  flex: none;
+  align-items: center;
+}
+.u-bottom .grow {
+  flex: 1;
+}
+
+/* ---------- Титульный экран ---------- */
+.u-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #f1dcad;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #3b2a1a 0%, #1d140d 70%);
+}
+.u-title h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+  margin: 0;
+  color: #ffd75a;
+  text-shadow: 0 3px 0 #120b06;
+}
+.u-title .ver {
+  color: #8a6f4a;
+}
+.u-title .row {
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------- Карта региона ---------- */
+.u-map {
+  position: absolute;
+  inset: 0;
+}
+.u-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.u-node {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-radius: 50%;
+  border: 3px solid #120b06;
+  background: #7d6a52;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #120b06;
+}
+.u-node.open {
+  background: #f9d992;
+}
+.u-node.done {
+  background: #b9c98a;
+}
+.u-node.boss {
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+}
+.u-node.locked {
+  opacity: 0.45;
+  filter: grayscale(1);
+}
+.u-node.here::after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top: 8px solid #ffd75a;
+  animation: bob 0.8s ease-in-out infinite alternate;
+}
+@keyframes bob {
+  to {
+    transform: translateY(-4px);
+  }
+}
+.u-node-label {
+  position: absolute;
+  transform: translate(-50%, 0);
+  color: #f1dcad;
+  text-shadow: 0 2px 0 #120b06;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.u-party {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.u-chip {
+  flex: 1;
+  min-width: 0;
+  max-width: 150px;
+  background: #f1dcad;
+  border: 3px solid #4c301e;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.u-chip .nm {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.u-chip .col {
+  flex: 1;
+  min-width: 0;
+}
+.u-bar {
+  height: 5px;
+  background: #2a1a10;
+  border: 1px solid #1c100a;
+}
+.u-bar > i {
+  display: block;
+  height: 100%;
+  background: #62d24c;
+}
+.u-bar.low > i {
+  background: #f2a33a;
+}
+.u-bar.xp > i {
+  background: #ffd75a;
+}
+
+/* ---------- Заглушка портрета ---------- */
+.u-face {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #1c100a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff3d6;
+  text-shadow: 0 2px 0 #1c100a;
+  font-size: 16px;
+  image-rendering: pixelated;
+  background-size: cover;
+  background-position: center top;
+}
+.u-face.big {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+}
+
+/* ---------- Окна ---------- */
+.u-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(10, 6, 3, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom))
+    max(8px, env(safe-area-inset-left));
+}
+.u-panel {
+  background: #f1dcad;
+  border: 4px solid #4c301e;
+  border-radius: 6px;
+  box-shadow: 0 4px 0 #120b06;
+  max-width: min(640px, 100%);
+  max-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.u-panel.full {
+  max-width: 100%;
+  height: 100%;
+}
+.u-panel.narrow {
+  max-width: 460px;
+}
+.u-panel h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  padding: 8px 12px 4px;
+}
+.u-panel .ptext {
+  padding: 4px 12px 8px;
+  white-space: pre-line;
+  color: #6b4a2e;
+}
+.u-panel .pbody {
+  flex: 1;
+  min-height: 0;
+  padding: 4px 12px;
+}
+.u-panel .pbtns {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.u-panel .pbtns.col {
+  flex-direction: column;
+  align-items: stretch;
+}
+.u-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 2px solid #d9bf8a;
+}
+.u-row:last-child {
+  border-bottom: 0;
+}
+.u-row .grow {
+  flex: 1;
+  min-width: 0;
+}
+.u-muted {
+  color: #8a6a48;
+}
+.u-warn {
+  color: #b3261e;
+}
+.u-good {
+  color: #2f7a1f;
+}
+.u-gold-ink {
+  color: #9a6a00;
+}
+
+/* ---------- Таверна: сетка героев ---------- */
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 6px;
+}
+.u-card {
+  border: 3px solid #4c301e;
+  border-radius: 4px;
+  background: #fff3d6;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  text-align: center;
+  min-height: 92px;
+}
+.u-card.sel {
+  background: #ffd75a;
+}
+.u-card.locked {
+  opacity: 0.4;
+}
+.u-card .nm {
+  font-size: 16px;
+  line-height: 18px;
+}
+.u-card .rl {
+  color: #8a6a48;
+}
+
+/* ---------- Карточка героя ---------- */
+.u-hero {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+}
+.u-hero .left {
+  width: 34%;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.u-hero .right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.u-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.u-tabs button {
+  flex: 1;
+}
+.u-tabs button {
+  background: #e3c99a;
+}
+.u-tabs button.on {
+  background: #ffd75a;
+  border-color: #2b1d12;
+}
+.u-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 8px;
+}
+.u-tree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.u-branch h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #6b4a2e;
+}
+.u-tnode {
+  border: 2px solid #4c301e;
+  border-radius: 3px;
+  background: #e9d3a4;
+  padding: 3px 5px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.u-tnode.have {
+  background: #b9e08a;
+}
+.u-tnode.can {
+  background: #ffd75a;
+}
+.u-tnode .tn {
+  display: block;
+}
+.u-tnode .td {
+  display: block;
+  color: #6b4a2e;
+  font-size: 16px;
+  line-height: 18px;
+}
+.u-ab {
+  padding: 4px 0 6px;
+  border-bottom: 2px solid #d9bf8a;
+}
+.u-ab .an {
+  color: #3b2414;
+}
+.u-ab .ak {
+  color: #8a6a48;
+}
+.u-ab .ad {
+  color: #6b4a2e;
+}
+.u-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+  z-index: 40;
+  background: #2b1d12;
+  color: #f1dcad;
+  border: 3px solid #120b06;
+  padding: 6px 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  max-width: 90%;
+  text-align: center;
+}

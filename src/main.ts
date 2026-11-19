@@ -1,11 +1,14 @@
 import Phaser from 'phaser';
-import { embeddedManifest, loadFont, MANIFEST_URL, type Manifest } from './core/assets';
+import { assetUrl, embeddedManifest, loadFont, MANIFEST_URL, type Manifest } from './core/assets';
 import { canFullscreen, enterFullscreen } from './core/screen';
 import { loadSettings } from './core/settings';
 import { sfx } from './core/sfx';
 import { Viewport } from './core/viewport';
 import { BattleScene } from './scenes/BattleScene';
 import { BootScene } from './scenes/BootScene';
+import type { BattleState } from './battle/core';
+import type { BattleSetup } from './game/progress';
+import { App } from './ui/app';
 
 function bootMessage(text: string): void {
   const el = document.getElementById('boot-text');
@@ -59,10 +62,30 @@ async function start(): Promise<void> {
       preBoot: (g) => {
         g.registry.set('manifest', manifest);
         g.registry.set('viewport', viewport);
+        g.registry.set('onReady', () => {
+          // Пока открыты меню, игровой цикл спит — экономия батареи.
+          g.loop.sleep();
+          app.start();
+        });
       },
       postBoot: (g) => viewport.attach(g),
     },
   });
+
+  const images = new Map(manifest.images.map((i) => [i.key, assetUrl(i.url)]));
+  const runBattle = (setup: BattleSetup) =>
+    new Promise<BattleState>((resolve) => {
+      game.loop.wake();
+      game.scene.start('battle', {
+        setup,
+        onEnd: (st: BattleState) => {
+          game.scene.stop('battle');
+          game.loop.sleep();
+          resolve(st);
+        },
+      });
+    });
+  const app = new App(runBattle, (key) => images.get(key) ?? null);
   // Для отладки из консоли.
   (window as unknown as { game: Phaser.Game }).game = game;
 }

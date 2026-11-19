@@ -7,9 +7,11 @@ const KEY = 'pnp-battle/settings';
 export interface Settings {
   version: 1;
   sound: boolean;
+  /** Скорость анимаций боя: 1 или 2. */
+  speed?: number;
 }
 
-const DEFAULTS: Settings = { version: 1, sound: true };
+const DEFAULTS: Settings = { version: 1, sound: true, speed: 1 };
 
 export function loadSettings(): Settings {
   try {

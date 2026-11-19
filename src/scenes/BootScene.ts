@@ -56,7 +56,9 @@ export class BootScene extends Phaser.Scene {
     const missing = manifest.images.filter((i) => !this.textures.exists(i.key) || this.textures.get(i.key).key === '__MISSING');
     if (missing.length) return; // сообщение уже показано
     document.getElementById('boot')?.classList.add('done');
-    this.scene.start('battle');
+    // Дальше управляет DOM-приложение: карта, город, герои. Бои запускает оно.
+    const ready = this.registry.get('onReady') as (() => void) | undefined;
+    ready?.();
   }
 
   private makeBowIcon(): void {
