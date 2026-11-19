@@ -80,6 +80,12 @@ public/assets/        графика и Tiny5 из передачи ChatGPT, man
 
 ## Публикация
 
+Игра: https://travojyu-spec.github.io/My-game/
+Версия одним файлом для игры без интернета: https://travojyu-spec.github.io/My-game/offline.html
+
+Сайт обновляется сам: после каждого изменения в `main` GitHub Actions собирает игру
+и кладёт сборку в ветку `gh-pages` (`.github/workflows/pages.yml`).
+
 `dist/` можно выложить в корень сайта или в любую подпапку (GitHub Pages, свой хостинг):
 пути относительные. Адрес подпапки должен заканчиваться на `/`.
 
