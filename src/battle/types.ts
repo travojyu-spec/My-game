@@ -2,7 +2,7 @@
 // тестировать отдельно и позже сохранять состояние боя в стабильном формате.
 
 export type Side = 'hero' | 'enemy';
-export type DamageType = 'physical' | 'fire';
+export type DamageType = 'physical' | 'fire' | 'magic';
 export type IconKey = 'sword' | 'shield' | 'fire' | 'potion' | 'bow';
 
 /** Кого можно выбрать целью. */
@@ -13,9 +13,9 @@ export type TargetRule =
   | 'ally-wounded'; // раненый живой союзник, включая себя
 
 export type Effect =
-  | { kind: 'damage'; power: number; type: DamageType }
+  | { kind: 'damage'; power: number; type: DamageType; all?: boolean; exhaust?: boolean; ignoreArmor?: boolean }
   | { kind: 'heal'; power: number }
-  | { kind: 'guard' };
+  | { kind: 'guard'; barrier?: boolean; once?: boolean };
 
 export interface AbilityDef {
   id: string;
@@ -64,6 +64,9 @@ export interface UnitState {
   guarding: string | null;
   /** Для громилы: цель замаха, удар придёт в его следующий ход. */
   windupTarget: string | null;
+  barrier?: boolean;
+  guardOnce?: boolean;
+  exhausted?: boolean;
 }
 
 export type BattleResult = 'ongoing' | 'victory' | 'defeat';

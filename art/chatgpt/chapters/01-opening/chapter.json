@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "id": "chapter_01",
+  "title": "Дорога к старому шлюзу",
+  "design_status": "implemented",
+  "art_status": "selected_by_assistant_on_user_delegation",
+  "target_first_play_minutes": [
+    10,
+    15
+  ],
+  "platform": "mobile_web",
+  "starting_hub": "creekside_rest",
+  "starting_party": [
+    "stark"
+  ],
+  "party_limit": 5,
+  "currency": {
+    "id": "gold",
+    "starting_balance": 0,
+    "real_money": false,
+    "first_clear_total": 180
+  },
+  "rest": {
+    "between_story_fights": "restore_all_hp_mp",
+    "defeat": "return_checkpoint_restore_no_gold_loss"
+  },
+  "mana_regen_per_turn": 1,
+  "primary_heroes": [
+    {
+      "id": "stark",
+      "variant": 1,
+      "unlock": "start",
+      "free": true,
+      "hp": 30,
+      "mp": 6,
+      "speed": 8,
+      "basic": {
+        "name": "Рубящий удар",
+        "damage": 6,
+        "type": "physical"
+      },
+      "skill": {
+        "name": "Сильный удар",
+        "damage": 10,
+        "type": "physical",
+        "mp_cost": 3
+      }
+    },
+    {
+      "id": "frieren",
+      "variant": 3,
+      "unlock": "encounter_01_complete",
+      "free": true,
+      "hp": 22,
+      "mp": 9,
+      "speed": 10,
+      "basic": {
+        "name": "Магический снаряд",
+        "damage": 5,
+        "type": "magic"
+      },
+      "skill": {
+        "name": "Барьер",
+        "effect": "halve_next_hit_on_ally",
+        "mp_cost": 3
+      }
+    },
+    {
+      "id": "fern",
+      "variant": 3,
+      "unlock": "encounter_01_complete",
+      "free": true,
+      "hp": 24,
+      "mp": 9,
+      "speed": 11,
+      "basic": {
+        "name": "Магический выстрел",
+        "damage": 6,
+        "type": "magic"
+      },
+      "skill": {
+        "name": "Прицельное заклинание",
+        "damage": 10,
+        "type": "magic",
+        "mp_cost": 3
+      }
+    },
+    {
+      "id": "megumin",
+      "variant": 2,
+      "unlock": "encounter_02_complete",
+      "free": true,
+      "hp": 20,
+      "mp": 12,
+      "speed": 4,
+      "basic": {
+        "name": "Посох",
+        "damage": 3,
+        "type": "physical"
+      },
+      "skill": {
+        "name": "Взрыв",
+        "damage": 12,
+        "type": "fire",
+        "target": "all_enemies",
+        "mp_cost": 12,
+        "uses_per_battle": 1,
+        "after_cast": "exhausted_until_battle_end"
+      }
+    },
+    {
+      "id": "goblin_slayer",
+      "variant": 2,
+      "unlock": "encounter_02_complete",
+      "free": true,
+      "hp": 40,
+      "mp": 6,
+      "speed": 9,
+      "basic": {
+        "name": "Короткий меч",
+        "damage": 5,
+        "type": "physical"
+      },
+      "skill": {
+        "name": "Прикрытие",
+        "effect": "redirect_next_ally_hit_to_self_at_half_damage",
+        "mp_cost": 2
+      }
+    }
+  ],
+  "hirelings": [
+    {
+      "id": "nara",
+      "name": "Нара",
+      "race": "tabaxi",
+      "role": "ranger",
+      "price_gold": 90,
+      "available_after": "chapter_01_complete",
+      "permanent": true,
+      "art_family": "ranger",
+      "hp": 25,
+      "mp": 6,
+      "speed": 12,
+      "basic": {
+        "name": "Выстрел",
+        "damage": 5,
+        "type": "physical"
+      },
+      "skill": {
+        "name": "Меткий выстрел",
+        "damage": 9,
+        "type": "physical",
+        "ignore_armor": true,
+        "mp_cost": 3
+      }
+    },
+    {
+      "id": "mira",
+      "name": "Мира",
+      "race": "water_genasi",
+      "role": "healer",
+      "price_gold": 120,
+      "available_after": "chapter_01_complete",
+      "permanent": true,
+      "art_family": "healer",
+      "hp": 24,
+      "mp": 9,
+      "speed": 7,
+      "basic": {
+        "name": "Посох",
+        "damage": 3,
+        "type": "physical"
+      },
+      "skill": {
+        "name": "Лечение",
+        "heal": 10,
+        "mp_cost": 3
+      }
+    }
+  ],
+  "encounters": [
+    {
+      "id": "encounter_01",
+      "title": "Опушка",
+      "party": [
+        "stark"
+      ],
+      "background": "cg/approved/backgrounds/forest_1",
+      "enemies": [
+        {
+          "id": "goblin",
+          "texture": "cg/approved/enemies/goblin_2",
+          "hp": 9,
+          "attack": 3,
+          "speed": 6
+        }
+      ],
+      "first_clear_gold": 30,
+      "repeat_gold": 0,
+      "join_after": [
+        "frieren",
+        "fern"
+      ],
+      "tutorial": "basic_attack_single_target"
+    },
+    {
+      "id": "encounter_02",
+      "title": "Лесная тропа",
+      "party": [
+        "stark",
+        "frieren",
+        "fern"
+      ],
+      "background": "cg/approved/backgrounds/forest_2",
+      "enemies": [
+        {
+          "id": "goblin",
+          "texture": "cg/approved/enemies/goblin_2",
+          "hp": 16,
+          "attack": 5,
+          "speed": 6
+        },
+        {
+          "id": "brute",
+          "texture": "cg/approved/enemies/brute_1",
+          "hp": 36,
+          "physical_multiplier": 0.5,
+          "fire_multiplier": 1.5,
+          "ai": "windup_then_hit",
+          "charged_damage": 14,
+          "speed": 3
+        }
+      ],
+      "first_clear_gold": 60,
+      "repeat_gold": 0,
+      "join_after": [
+        "megumin",
+        "goblin_slayer"
+      ],
+      "tutorial": "armor_magic_and_barrier"
+    },
+    {
+      "id": "encounter_03",
+      "title": "Старый шлюз",
+      "party": [
+        "stark",
+        "frieren",
+        "fern",
+        "megumin",
+        "goblin_slayer"
+      ],
+      "background": "cg/approved/backgrounds/forest_3",
+      "props": [
+        "cg/approved/props/sluice_1",
+        "cg/approved/props/crossing_1",
+        "cg/approved/props/plants_2"
+      ],
+      "enemies": [
+        {
+          "id": "sluice_guard",
+          "texture": "cg/approved/enemies/brute_3",
+          "hp": 65,
+          "physical_multiplier": 0.5,
+          "fire_multiplier": 1.5,
+          "ai": "windup_then_hit",
+          "charged_damage": 16,
+          "speed": 3
+        },
+        {
+          "id": "goblin",
+          "texture": "cg/approved/enemies/goblin_2",
+          "hp": 18,
+          "attack": 5,
+          "speed": 6
+        },
+        {
+          "id": "mushroom_healer",
+          "texture": "cg/approved/enemies/healer_2",
+          "hp": 18,
+          "heal": 8,
+          "heal_threshold": 5,
+          "attack": 3,
+          "speed": 5
+        }
+      ],
+      "first_clear_gold": 90,
+      "repeat_gold": 20,
+      "join_after": [],
+      "unlock_after": [
+        "chapter_01_complete",
+        "hirelings",
+        "party_reserve"
+      ],
+      "tutorial": "healer_priority_telegraph_and_explosion"
+    }
+  ],
+  "save": {
+    "version": 1,
+    "checkpoints": [
+      "before_encounter",
+      "after_victory",
+      "after_hire",
+      "after_party_change"
+    ],
+    "first_clear_rewards_once": true,
+    "duplicate_hire_forbidden": true,
+    "purchase_requires_gold": true,
+    "transaction_fields": [
+      "gold",
+      "unlocked_heroes",
+      "active_party",
+      "first_clear_claims",
+      "chapter_progress"
+    ]
+  },
+  "art_families": [
+    {
+      "id": "hub_ground",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "inn",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "quest_board",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "ranger",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "healer",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "gold",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    },
+    {
+      "id": "bow",
+      "candidate_options": [
+        1
+      ],
+      "selected": 1,
+      "selected_by": "ChatGPT"
+    }
+  ],
+  "implementation_owner": "ChatGPT (explicit user instruction)",
+  "art_owner": "ChatGPT",
+  "balance_note": "300 seeded battles passed with a basic offensive strategy. Human balance and mobile visual acceptance remain unverified."
+}

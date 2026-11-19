@@ -44,6 +44,9 @@ export function createBattle(seed = Date.now() | 0, units: UnitDef[] = UNITS): B
       guardedBy: null,
       guarding: null,
       windupTarget: null,
+      barrier: false,
+      guardOnce: false,
+      exhausted: false,
     };
   }
   return state;
@@ -64,7 +67,7 @@ export function currentUnitId(state: BattleState): string | null {
 
 /** Порядок на раунд: живые бойцы по скорости, при равенстве герои раньше. */
 export function roundOrder(state: BattleState): string[] {
-  return living(state)
+  return living(state).filter((u) => !u.exhausted)
     .map((u) => def(u.id))
     .sort((a, b) => b.speed - a.speed || (a.side === 'hero' ? -1 : 1))
     .map((d) => d.id);
@@ -109,6 +112,9 @@ export function validTargets(state: BattleState, actorId: string, abilityId: str
 export function checkAbility(state: BattleState, actorId: string, abilityId: string): AbilityCheck {
   const a = ability(abilityId);
   const actor = state.units[actorId];
+  if (!a || !actor?.alive || actor.exhausted || !def(actorId).abilities.includes(abilityId)) {
+    return { ok: false, reason: 'Действие недоступно.' };
+  }
   if (a.cost > actor.mp) {
     return { ok: false, reason: `Не хватает маны: нужно ${a.cost}, есть ${actor.mp}.` };
   }
@@ -138,9 +144,11 @@ export function preview(state: BattleState, action: Action): Preview {
     return { kind: 'heal', amount: Math.min(eff.power, def(t.id).maxHp - t.hp), takenBy: null, mod: null };
   }
   if (eff.kind === 'guard') return { kind: 'guard', amount: 0, takenBy: null, mod: null };
-  const mult = damageMultiplier(action.target, eff.type);
+  const baseMult = damageMultiplier(action.target, eff.type);
+  const mult = eff.ignoreArmor && baseMult < 1 ? 1 : baseMult;
   let amount = scaled(eff.power, mult);
   const mod = mult > 1 ? 'weak' : mult < 1 ? 'resist' : null;
+  if (state.units[action.target].barrier) amount = Math.max(1, Math.ceil(amount / 2));
   const guard = state.units[action.target].guardedBy;
   if (guard && state.units[guard].alive) {
     amount = Math.max(1, Math.ceil(amount * RULES.guardDamageShare));
@@ -188,7 +196,7 @@ export function advance(state: BattleState): BattleEvent[] {
       state.order = roundOrder(state);
       idx = 0;
     }
-    if (state.units[state.order[idx]].alive) break;
+    if (state.units[state.order[idx]].alive && !state.units[state.order[idx]].exhausted) break;
     idx += 1; // побеждённые пропускают ход
   }
   state.turnIndex = idx;
@@ -227,6 +235,9 @@ function checkEnd(state: BattleState, events: BattleEvent[]): void {
 /** Выполнить действие. Предполагается, что оно прошло проверку checkAbility. */
 export function perform(state: BattleState, action: Action): BattleEvent[] {
   const events: BattleEvent[] = [];
+  if (state.result !== 'ongoing' || currentUnitId(state) !== action.actor) return events;
+  const allowed = checkAbility(state, action.actor, action.ability);
+  if (!allowed.ok || !allowed.targets.includes(action.target)) return events;
   const a = ability(action.ability);
   const actor = state.units[action.actor];
   actor.mp -= a.cost;
@@ -237,16 +248,22 @@ export function perform(state: BattleState, action: Action): BattleEvent[] {
     events.push({ type: 'windup', actor: action.actor, target: action.target });
     return events;
   }
-  if (action.ability === 'slam') actor.windupTarget = null;
+  if (a.fx === 'slam') actor.windupTarget = null;
 
   const eff = a.effect;
   if (eff.kind === 'guard') {
     const ward = state.units[action.target];
     // Если союзника уже кто-то защищал, старая защита снимается.
     if (ward.guardedBy) clearGuard(state, ward.guardedBy, events);
-    clearGuard(state, action.actor, events);
-    actor.guarding = action.target;
-    ward.guardedBy = action.actor;
+    ward.barrier = false;
+    if (eff.barrier) {
+      ward.barrier = true;
+    } else {
+      clearGuard(state, action.actor, events);
+      actor.guarding = action.target;
+      actor.guardOnce = Boolean(eff.once);
+      ward.guardedBy = action.actor;
+    }
     events.push({ type: 'guard', guard: action.actor, ward: action.target });
   } else if (eff.kind === 'heal') {
     const t = state.units[action.target];
@@ -254,20 +271,21 @@ export function perform(state: BattleState, action: Action): BattleEvent[] {
     t.hp += amount;
     events.push({ type: 'heal', source: action.actor, target: action.target, amount });
   } else {
-    const p = preview(state, action);
-    const victimId = p.takenBy ?? action.target;
-    const victim = state.units[victimId];
-    victim.hp = Math.max(0, victim.hp - p.amount);
-    events.push({
-      type: 'damage',
-      source: action.actor,
-      target: victimId,
-      redirectedFrom: p.takenBy ? action.target : null,
-      amount: p.amount,
-      damageType: eff.type,
-      mod: p.mod,
-    });
-    if (victim.hp <= 0) kill(state, victimId, events);
+    const targets = eff.all
+      ? living(state, def(action.actor).side === 'hero' ? 'enemy' : 'hero').map((u) => u.id)
+      : [action.target];
+    for (const target of targets) {
+      const p = preview(state, { ...action, target });
+      const victimId = p.takenBy ?? target;
+      const victim = state.units[victimId];
+      state.units[target].barrier = false;
+      victim.hp = Math.max(0, victim.hp - p.amount);
+      events.push({ type: 'damage', source: action.actor, target: victimId,
+        redirectedFrom: p.takenBy ? target : null, amount: p.amount, damageType: eff.type, mod: p.mod });
+      if (p.takenBy && victim.guardOnce) clearGuard(state, p.takenBy, events);
+      if (victim.hp <= 0) kill(state, victimId, events);
+    }
+    if (eff.exhaust) actor.exhausted = true;
   }
   checkEnd(state, events);
   return events;
@@ -283,11 +301,11 @@ export function enemyDecide(state: BattleState, actorId: string): Action {
     case 'goblin': {
       // Самый раненый по текущему здоровью, при равенстве — первый по списку.
       const target = heroes.reduce((a, b) => (b.hp < a.hp ? b : a));
-      return { actor: actorId, ability: 'slingshot', target: target.id };
+      return { actor: actorId, ability: d.abilities[0], target: target.id };
     }
     case 'brute': {
       if (me.windupTarget && state.units[me.windupTarget].alive) {
-        return { actor: actorId, ability: 'slam', target: me.windupTarget };
+        return { actor: actorId, ability: d.abilities[1] ?? 'slam', target: me.windupTarget };
       }
       // Замахивается на случайного героя; воина выбирает, только если остался один.
       const pool = heroes.length > 1 ? heroes.filter((h) => h.id !== 'warrior') : heroes;
@@ -298,8 +316,8 @@ export function enemyDecide(state: BattleState, actorId: string): Action {
         .map((u) => ({ u, missing: def(u.id).maxHp - u.hp }))
         .filter((x) => x.missing >= RULES.sproutHealThreshold)
         .sort((a, b) => b.missing - a.missing);
-      if (allies.length > 0) return { actor: actorId, ability: 'mend', target: allies[0].u.id };
-      return { actor: actorId, ability: 'spores', target: pick(state, heroes).id };
+      if (allies.length > 0) return { actor: actorId, ability: d.abilities[0], target: allies[0].u.id };
+      return { actor: actorId, ability: d.abilities[1], target: pick(state, heroes).id };
     }
     default:
       return { actor: actorId, ability: d.abilities[0], target: pick(state, heroes).id };

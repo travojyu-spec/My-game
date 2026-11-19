@@ -28,7 +28,7 @@ function embeddedAssets(single: boolean): Plugin {
     load(id) {
       if (id !== '\0' + VIRTUAL) return null;
       if (!single) return 'export default null;';
-      const manifest = JSON.parse(readFileSync(resolve(PUBLIC, 'assets/manifest.json'), 'utf8'));
+      const manifest = JSON.parse(readFileSync(resolve(PUBLIC, 'assets/chatgpt/manifest.json'), 'utf8'));
       const files: Record<string, string> = {};
       for (const img of manifest.images) files[img.url] = dataUri(img.url);
       files[manifest.font.url] = dataUri(manifest.font.url);

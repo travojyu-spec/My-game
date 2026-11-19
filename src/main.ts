@@ -1,73 +1,22 @@
 import Phaser from 'phaser';
-import { embeddedManifest, loadFont, MANIFEST_URL, type Manifest } from './core/assets';
+import { assetUrl, embeddedManifest, loadFont } from './core/assets';
 import { canFullscreen, enterFullscreen } from './core/screen';
 import { loadSettings } from './core/settings';
 import { sfx } from './core/sfx';
-import { Viewport } from './core/viewport';
-import { BattleScene } from './scenes/BattleScene';
-import { BootScene } from './scenes/BootScene';
+import { AdventureApp } from './adventure/app';
+import { AdventureScene, type ArtCatalog } from './adventure/scene';
+import './adventure/game.css';
 
-function bootMessage(text: string): void {
-  const el = document.getElementById('boot-text');
-  if (el) el.textContent = text;
+async function start():Promise<void>{
+  window.addEventListener('pointerdown',()=>sfx.unlock(),{capture:true});
+  sfx.enabled=loadSettings().sound;
+  const full=document.getElementById('rotate-fullscreen') as HTMLButtonElement;
+  full.hidden=!canFullscreen();full.addEventListener('click',()=>void enterFullscreen());
+  const catalog:ArtCatalog=embeddedManifest?embeddedManifest as unknown as ArtCatalog:await fetch('assets/chatgpt/manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error(`Каталог: ${r.status}`);return r.json() as Promise<ArtCatalog>;});
+  document.documentElement.style.setProperty('--frame',`url("${assetUrl('assets/chatgpt/approved/ui/window_1.png')}")`);
+  await loadFont();
+  const app=new AdventureApp(catalog);
+  const scene=new AdventureScene(catalog,()=>app.ready(scene),points=>app.setPoints(points));
+  new Phaser.Game({type:Phaser.AUTO,parent:'game',backgroundColor:'#173123',banner:false,disableContextMenu:true,render:{antialias:true},scale:{mode:Phaser.Scale.NONE,width:window.innerWidth,height:window.innerHeight},audio:{noAudio:true},input:{activePointers:1},scene:[scene]});
 }
-
-async function loadManifest(): Promise<Manifest> {
-  if (embeddedManifest) return embeddedManifest;
-  const res = await fetch(MANIFEST_URL, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`manifest.json: ${res.status}`);
-  return (await res.json()) as Manifest;
-}
-
-async function start(): Promise<void> {
-  // Звук включается первым касанием игрока.
-  window.addEventListener('pointerdown', () => sfx.unlock(), { capture: true });
-  sfx.enabled = loadSettings().sound;
-
-  const rotateBtn = document.getElementById('rotate-fullscreen') as HTMLButtonElement;
-  if (canFullscreen()) {
-    rotateBtn.hidden = false;
-    rotateBtn.addEventListener('click', () => void enterFullscreen());
-  }
-
-  const [manifest, fontOk] = await Promise.all([loadManifest(), loadFont()]);
-  if (!fontOk) console.warn('Шрифт Tiny5 не загрузился вовремя, текст может отличаться.');
-
-  const host = document.getElementById('game')!;
-  const viewport = new Viewport(host);
-  const L = viewport.layout;
-
-  const game = new Phaser.Game({
-    type: Phaser.WEBGL,
-    parent: host,
-    backgroundColor: '#0f1a10',
-    banner: false,
-    disableContextMenu: true,
-    // Чёткие пиксели одинакового размера при дробном масштабе.
-    render: { smoothPixelArt: true },
-    scale: {
-      mode: Phaser.Scale.NONE,
-      width: L.deviceW,
-      height: L.deviceH,
-      zoom: host.clientWidth / L.deviceW,
-    },
-    // Звуки синтезируются вручную, встроенное аудио Phaser не нужно.
-    audio: { noAudio: true },
-    input: { activePointers: 1 },
-    scene: [BootScene, BattleScene],
-    callbacks: {
-      preBoot: (g) => {
-        g.registry.set('manifest', manifest);
-        g.registry.set('viewport', viewport);
-      },
-      postBoot: (g) => viewport.attach(g),
-    },
-  });
-  // Для отладки из консоли.
-  (window as unknown as { game: Phaser.Game }).game = game;
-}
-
-start().catch((err) => {
-  console.error(err);
-  bootMessage('Не удалось загрузить игру. Обновите страницу.');
-});
+start().catch(err=>{console.error(err);document.getElementById('boot-text')!.textContent='Не удалось загрузить игру. Обновите страницу.';});
