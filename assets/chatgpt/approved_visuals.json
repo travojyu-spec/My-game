@@ -1,0 +1,313 @@
+{
+  "status": "approved",
+  "choices": {
+    "enemies/goblin": [
+      2
+    ],
+    "enemies/brute": [
+      1,
+      2,
+      3
+    ],
+    "enemies/healer": [
+      2,
+      3
+    ],
+    "props/sluice": [
+      1,
+      2,
+      3
+    ],
+    "props/crossing": [
+      1,
+      2
+    ],
+    "props/plants": [
+      1,
+      2,
+      3
+    ],
+    "backgrounds/forest": [
+      1,
+      2,
+      3
+    ],
+    "ui/card": [
+      1
+    ],
+    "ui/button": [
+      1
+    ],
+    "ui/window": [
+      1
+    ],
+    "icons/attack": [
+      1
+    ],
+    "icons/fire": [
+      3
+    ],
+    "icons/shield": [
+      1
+    ],
+    "icons/potion": [
+      1
+    ]
+  },
+  "options": [
+    {
+      "id": "enemies/goblin_2",
+      "label": "Гоблин",
+      "option": 2,
+      "texture": "cg/approved/enemies/goblin_2",
+      "url": "assets/chatgpt/approved/enemies/goblin_2.png",
+      "width": 34,
+      "height": 32
+    },
+    {
+      "id": "enemies/brute_1",
+      "label": "Громила",
+      "option": 1,
+      "texture": "cg/approved/enemies/brute_1",
+      "url": "assets/chatgpt/approved/enemies/brute_1.png",
+      "width": 46,
+      "height": 50
+    },
+    {
+      "id": "enemies/brute_2",
+      "label": "Громила",
+      "option": 2,
+      "texture": "cg/approved/enemies/brute_2",
+      "url": "assets/chatgpt/approved/enemies/brute_2.png",
+      "width": 50,
+      "height": 47
+    },
+    {
+      "id": "enemies/brute_3",
+      "label": "Громила",
+      "option": 3,
+      "texture": "cg/approved/enemies/brute_3",
+      "url": "assets/chatgpt/approved/enemies/brute_3.png",
+      "width": 50,
+      "height": 48
+    },
+    {
+      "id": "enemies/healer_2",
+      "label": "Лекарь",
+      "option": 2,
+      "texture": "cg/approved/enemies/healer_2",
+      "url": "assets/chatgpt/approved/enemies/healer_2.png",
+      "width": 27,
+      "height": 28
+    },
+    {
+      "id": "enemies/healer_3",
+      "label": "Лекарь",
+      "option": 3,
+      "texture": "cg/approved/enemies/healer_3",
+      "url": "assets/chatgpt/approved/enemies/healer_3.png",
+      "width": 23,
+      "height": 28
+    },
+    {
+      "id": "props/sluice_1",
+      "label": "Шлюз",
+      "option": 1,
+      "texture": "cg/approved/props/sluice_1",
+      "url": "assets/chatgpt/approved/props/sluice_1.png",
+      "width": 108,
+      "height": 80
+    },
+    {
+      "id": "props/sluice_2",
+      "label": "Шлюз",
+      "option": 2,
+      "texture": "cg/approved/props/sluice_2",
+      "url": "assets/chatgpt/approved/props/sluice_2.png",
+      "width": 110,
+      "height": 80
+    },
+    {
+      "id": "props/sluice_3",
+      "label": "Шлюз",
+      "option": 3,
+      "texture": "cg/approved/props/sluice_3",
+      "url": "assets/chatgpt/approved/props/sluice_3.png",
+      "width": 104,
+      "height": 80
+    },
+    {
+      "id": "props/crossing_1",
+      "label": "Переход",
+      "option": 1,
+      "texture": "cg/approved/props/crossing_1",
+      "url": "assets/chatgpt/approved/props/crossing_1.png",
+      "width": 145,
+      "height": 84
+    },
+    {
+      "id": "props/crossing_2",
+      "label": "Переход",
+      "option": 2,
+      "texture": "cg/approved/props/crossing_2",
+      "url": "assets/chatgpt/approved/props/crossing_2.png",
+      "width": 156,
+      "height": 84
+    },
+    {
+      "id": "props/plants_1",
+      "label": "Растения",
+      "option": 1,
+      "texture": "cg/approved/props/plants_1",
+      "url": "assets/chatgpt/approved/props/plants_1.png",
+      "width": 38,
+      "height": 26
+    },
+    {
+      "id": "props/plants_2",
+      "label": "Растения",
+      "option": 2,
+      "texture": "cg/approved/props/plants_2",
+      "url": "assets/chatgpt/approved/props/plants_2.png",
+      "width": 37,
+      "height": 32
+    },
+    {
+      "id": "props/plants_3",
+      "label": "Растения",
+      "option": 3,
+      "texture": "cg/approved/props/plants_3",
+      "url": "assets/chatgpt/approved/props/plants_3.png",
+      "width": 38,
+      "height": 28
+    },
+    {
+      "id": "backgrounds/forest_1",
+      "label": "Берёзовый лес",
+      "option": 1,
+      "texture": "cg/approved/backgrounds/forest_1",
+      "url": "assets/chatgpt/approved/backgrounds/forest_1.png",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "backgrounds/forest_2",
+      "label": "Ольховая роща",
+      "option": 2,
+      "texture": "cg/approved/backgrounds/forest_2",
+      "url": "assets/chatgpt/approved/backgrounds/forest_2.png",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "backgrounds/forest_3",
+      "label": "Сосновая тропа",
+      "option": 3,
+      "texture": "cg/approved/backgrounds/forest_3",
+      "url": "assets/chatgpt/approved/backgrounds/forest_3.png",
+      "width": 480,
+      "height": 270
+    },
+    {
+      "id": "ui/card_1",
+      "label": "Карточка",
+      "option": 1,
+      "texture": "cg/approved/ui/card_1",
+      "url": "assets/chatgpt/approved/ui/card_1.png",
+      "width": 59,
+      "height": 78
+    },
+    {
+      "id": "ui/button_1",
+      "label": "Кнопка",
+      "option": 1,
+      "texture": "cg/approved/ui/button_1",
+      "url": "assets/chatgpt/approved/ui/button_1.png",
+      "width": 90,
+      "height": 48
+    },
+    {
+      "id": "ui/window_1",
+      "label": "Окно",
+      "option": 1,
+      "texture": "cg/approved/ui/window_1",
+      "url": "assets/chatgpt/approved/ui/window_1.png",
+      "width": 126,
+      "height": 94
+    },
+    {
+      "id": "icons/attack_1",
+      "label": "Удар",
+      "option": 1,
+      "texture": "cg/approved/icons/attack_1",
+      "url": "assets/chatgpt/approved/icons/attack_1.png",
+      "width": 15,
+      "height": 18
+    },
+    {
+      "id": "icons/fire_3",
+      "label": "Огонь",
+      "option": 3,
+      "texture": "cg/approved/icons/fire_3",
+      "url": "assets/chatgpt/approved/icons/fire_3.png",
+      "width": 13,
+      "height": 18
+    },
+    {
+      "id": "icons/shield_1",
+      "label": "Защита",
+      "option": 1,
+      "texture": "cg/approved/icons/shield_1",
+      "url": "assets/chatgpt/approved/icons/shield_1.png",
+      "width": 17,
+      "height": 18
+    },
+    {
+      "id": "icons/potion_1",
+      "label": "Зелье",
+      "option": 1,
+      "texture": "cg/approved/icons/potion_1",
+      "url": "assets/chatgpt/approved/icons/potion_1.png",
+      "width": 14,
+      "height": 18
+    }
+  ],
+  "scene_preview_defaults": {
+    "background": "backgrounds/forest_1",
+    "goblin": "enemies/goblin_2",
+    "brute": "enemies/brute_1",
+    "healer": "enemies/healer_2",
+    "sluice": "props/sluice_1",
+    "crossing": "props/crossing_1",
+    "interface": 1
+  },
+  "background_interpretation": "Все три лесных фона включены по фразе пользователя «Окружение всё ок».",
+  "multiple_variants_usage": "Одобренные варианты доступны для разных встреч и сцен.",
+  "effects": {
+    "manifest": "assets/chatgpt/effects/effects.json",
+    "choices": {
+      "attack": [
+        1,
+        2
+      ],
+      "fire": [
+        1,
+        2
+      ],
+      "guard": [
+        1
+      ],
+      "heal": [
+        1
+      ]
+    },
+    "status": "approved"
+  },
+  "heroes": {
+    "frieren": 3,
+    "fern": 3,
+    "stark": 1,
+    "megumin": 2,
+    "goblin_slayer": 2
+  }
+}
