@@ -33,7 +33,8 @@ export class BootScene extends Phaser.Scene {
 
   preload(): void {
     const manifest = this.registry.get('manifest') as Manifest;
-    for (const img of manifest.images) this.load.image(img.key, assetUrl(img.url));
+    // Крупные рисунки героев грузятся перед боем только для текущего отряда (см. BattleScene.preload).
+    for (const img of manifest.images) if (!img.key.startsWith('cg/heroes/')) this.load.image(img.key, assetUrl(img.url));
 
     const failed: string[] = [];
     this.load.on(Phaser.Loader.Events.FILE_LOAD_ERROR, (file: Phaser.Loader.File) => failed.push(file.key));
@@ -53,7 +54,7 @@ export class BootScene extends Phaser.Scene {
   create(): void {
     this.makeBowIcon();
     const manifest = this.registry.get('manifest') as Manifest;
-    const missing = manifest.images.filter((i) => !this.textures.exists(i.key) || this.textures.get(i.key).key === '__MISSING');
+    const missing = manifest.images.filter((i) => !i.key.startsWith('cg/heroes/') && (!this.textures.exists(i.key) || this.textures.get(i.key).key === '__MISSING'));
     if (missing.length) return; // сообщение уже показано
     document.getElementById('boot')?.classList.add('done');
     // Дальше управляет DOM-приложение: карта, город, герои. Бои запускает оно.

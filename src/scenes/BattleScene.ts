@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { Engine, ITEM_ABILITIES, PASS, STATUS, kitOf, type AbilityDef, type Action, type BattleState, type Ev, type Unit } from '../battle/core';
-import type { Manifest } from '../core/assets';
+import { assetUrl, type Manifest } from '../core/assets';
 import { canFullscreen, isFullscreen, toggleFullscreen } from '../core/screen';
 import { loadSettings, saveSettings } from '../core/settings';
 import { sfx } from '../core/sfx';
@@ -107,6 +107,17 @@ export class BattleScene extends Phaser.Scene {
 
   init(data: BattleData): void {
     this.data0 = data;
+  }
+
+  /** Подгрузить рисунки героев отряда, если их ещё нет. */
+  preload(): void {
+    const manifest = this.registry.get('manifest') as Manifest;
+    for (const u of this.data0.setup.state.units) {
+      const art = u.side === 'hero' ? heroArt(u.key) : undefined;
+      if (!art || this.textures.exists(art.texture)) continue;
+      const img = manifest.images.find((i) => i.key === art.texture);
+      if (img) this.load.image(img.key, assetUrl(img.url));
+    }
   }
 
   // ======================= Создание =======================

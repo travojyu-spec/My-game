@@ -391,6 +391,147 @@
       "alpha": true,
       "category": "opening",
       "sha256": "ac3491fa636b3b898687d76e218227695924876b7849ce4eb3b88d660212245e"
+    },
+    {
+      "key": "cg/heroes/asta",
+      "url": "assets/chatgpt/heroes/asta.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "46ebcd259239b15fb9e9eaf2f97b3d2332c5ee17c7f9d8c42f4bdec5d691c42d"
+    },
+    {
+      "key": "cg/heroes/guts",
+      "url": "assets/chatgpt/heroes/guts.png",
+      "width": 1086,
+      "height": 1448,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "b3bb2896fd7887e709c813d6c7dec3fa7a9013492bd34921bb0952bc305d7975"
+    },
+    {
+      "key": "cg/heroes/edward",
+      "url": "assets/chatgpt/heroes/edward.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "34af790bc760f5ec96f17be79b1cce70625a166761cba591e03a23a07be39358"
+    },
+    {
+      "key": "cg/heroes/alucard",
+      "url": "assets/chatgpt/heroes/alucard.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "c95f72965d51833f747ae244ed180e344bf3da8f4fc2ae35032e7d820e464b08"
+    },
+    {
+      "key": "cg/heroes/aqua",
+      "url": "assets/chatgpt/heroes/aqua.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "0870288163dcef4c3d2d677ff12a4c2d2f14f37593b0f754022c7d2e9ed7ccc9"
+    },
+    {
+      "key": "cg/heroes/darkness",
+      "url": "assets/chatgpt/heroes/darkness.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "f836575da1a988143594a73031bec242913299ae54cb04a8aaa892692b983c54"
+    },
+    {
+      "key": "cg/heroes/escanor",
+      "url": "assets/chatgpt/heroes/escanor.png",
+      "width": 1235,
+      "height": 1274,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "b9b3abf30cac59e255de08a8de1d146993b5e9e53078e40343e250c725116004"
+    },
+    {
+      "key": "cg/heroes/zoro",
+      "url": "assets/chatgpt/heroes/zoro.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "e697fc3db9950128a3522d9f189ecf20d5fbc11d97aa2519628838668da76a09"
+    },
+    {
+      "key": "cg/heroes/sanji",
+      "url": "assets/chatgpt/heroes/sanji.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "sha256": "d7fdf2a8d78e8a08100a27f524f8222dd9918564f556da109e6d77c3e46f32f8"
+    },
+    {
+      "key": "cg/heroes/luffy",
+      "url": "assets/chatgpt/heroes/luffy.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 3,
+      "sha256": "3e57774ef12a32420f042d82646385388680d0ce8dc425c8372d42ec3a1ba809"
+    },
+    {
+      "key": "cg/heroes/yami",
+      "url": "assets/chatgpt/heroes/yami.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 2,
+      "sha256": "3d12db45e7ea5c12879530fe08d57297a3d01a84fd25f38960848a391ab1b6db"
+    },
+    {
+      "key": "cg/heroes/meliodas",
+      "url": "assets/chatgpt/heroes/meliodas.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 2,
+      "sha256": "9d2293423484f91de8750a5c63588ed4b641ca45f7f0fada42aee4c838030cc7"
+    },
+    {
+      "key": "cg/heroes/ban",
+      "url": "assets/chatgpt/heroes/ban.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 2,
+      "sha256": "31befa7953fb7b3dee3d6d611fcd300a147c1cc03426bf0ea8cbcf29560a80e8"
+    },
+    {
+      "key": "cg/heroes/sylphie",
+      "url": "assets/chatgpt/heroes/sylphie.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 1,
+      "sha256": "d1e5e29ee98943b76aa67647b3128315bc70845f31019c8816cb631841208b3f"
+    },
+    {
+      "key": "cg/heroes/roxy",
+      "url": "assets/chatgpt/heroes/roxy.png",
+      "width": 1177,
+      "height": 1336,
+      "alpha": true,
+      "category": "heroes",
+      "option": 1,
+      "sha256": "09d002189aa5e56406e3732b8fba8cae27b66829675a0bac77086b4abdaa7449"
     }
   ],
   "heroes": [
@@ -570,6 +711,441 @@
       "frames": 1,
       "master": "art/chatgpt/masters/opening/healer.png",
       "file": "public/assets/chatgpt/opening/healer.png"
+    },
+    {
+      "id": "asta",
+      "name": "Аста",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_01",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/asta_2.png",
+      "file": "public/assets/chatgpt/heroes/asta.png",
+      "url": "assets/chatgpt/heroes/asta.png",
+      "texture": "cg/heroes/asta",
+      "sha256": "46ebcd259239b15fb9e9eaf2f97b3d2332c5ee17c7f9d8c42f4bdec5d691c42d",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 257,
+        "y": 33,
+        "width": 684,
+        "height": 1264
+      },
+      "anchor_pixel": {
+        "x": 515,
+        "y": 1296
+      },
+      "origin_x": 0.43755310110450296,
+      "origin_y": 0.9700598802395209
+    },
+    {
+      "id": "guts",
+      "name": "Гатс",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_01",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/guts_2.png",
+      "file": "public/assets/chatgpt/heroes/guts.png",
+      "url": "assets/chatgpt/heroes/guts.png",
+      "texture": "cg/heroes/guts",
+      "sha256": "b3bb2896fd7887e709c813d6c7dec3fa7a9013492bd34921bb0952bc305d7975",
+      "width": 1086,
+      "height": 1448,
+      "opaque_bounds": {
+        "x": 139,
+        "y": 31,
+        "width": 828,
+        "height": 1400
+      },
+      "anchor_pixel": {
+        "x": 449,
+        "y": 1430
+      },
+      "origin_x": 0.4134438305709024,
+      "origin_y": 0.9875690607734806
+    },
+    {
+      "id": "edward",
+      "name": "Эдвард Элрик",
+      "option": 3,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_01",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/edward_3.png",
+      "file": "public/assets/chatgpt/heroes/edward.png",
+      "url": "assets/chatgpt/heroes/edward.png",
+      "texture": "cg/heroes/edward",
+      "sha256": "34af790bc760f5ec96f17be79b1cce70625a166761cba591e03a23a07be39358",
+      "width": 1024,
+      "height": 1536,
+      "opaque_bounds": {
+        "x": 193,
+        "y": 76,
+        "width": 609,
+        "height": 1434
+      },
+      "anchor_pixel": {
+        "x": 466,
+        "y": 1509
+      },
+      "origin_x": 0.455078125,
+      "origin_y": 0.982421875
+    },
+    {
+      "id": "alucard",
+      "name": "Алукард",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_02",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/alucard_1.png",
+      "file": "public/assets/chatgpt/heroes/alucard.png",
+      "url": "assets/chatgpt/heroes/alucard.png",
+      "texture": "cg/heroes/alucard",
+      "sha256": "c95f72965d51833f747ae244ed180e344bf3da8f4fc2ae35032e7d820e464b08",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 198,
+        "y": 86,
+        "width": 755,
+        "height": 1219
+      },
+      "anchor_pixel": {
+        "x": 566,
+        "y": 1304
+      },
+      "origin_x": 0.48088360237892946,
+      "origin_y": 0.9760479041916168
+    },
+    {
+      "id": "aqua",
+      "name": "Аква",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_02",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/aqua_1.png",
+      "file": "public/assets/chatgpt/heroes/aqua.png",
+      "url": "assets/chatgpt/heroes/aqua.png",
+      "texture": "cg/heroes/aqua",
+      "sha256": "0870288163dcef4c3d2d677ff12a4c2d2f14f37593b0f754022c7d2e9ed7ccc9",
+      "width": 1024,
+      "height": 1536,
+      "opaque_bounds": {
+        "x": 156,
+        "y": 66,
+        "width": 696,
+        "height": 1432
+      },
+      "anchor_pixel": {
+        "x": 503,
+        "y": 1497
+      },
+      "origin_x": 0.4912109375,
+      "origin_y": 0.974609375
+    },
+    {
+      "id": "darkness",
+      "name": "Даркнесс",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_02",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/darkness_1.png",
+      "file": "public/assets/chatgpt/heroes/darkness.png",
+      "url": "assets/chatgpt/heroes/darkness.png",
+      "texture": "cg/heroes/darkness",
+      "sha256": "f836575da1a988143594a73031bec242913299ae54cb04a8aaa892692b983c54",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 304,
+        "y": 70,
+        "width": 668,
+        "height": 1227
+      },
+      "anchor_pixel": {
+        "x": 544,
+        "y": 1296
+      },
+      "origin_x": 0.46219201359388273,
+      "origin_y": 0.9700598802395209
+    },
+    {
+      "id": "escanor",
+      "name": "Эсканор",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_03",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/escanor_2.png",
+      "file": "public/assets/chatgpt/heroes/escanor.png",
+      "url": "assets/chatgpt/heroes/escanor.png",
+      "texture": "cg/heroes/escanor",
+      "sha256": "b9b3abf30cac59e255de08a8de1d146993b5e9e53078e40343e250c725116004",
+      "width": 1235,
+      "height": 1274,
+      "opaque_bounds": {
+        "x": 64,
+        "y": 99,
+        "width": 1023,
+        "height": 1125
+      },
+      "anchor_pixel": {
+        "x": 644,
+        "y": 1223
+      },
+      "origin_x": 0.5214574898785425,
+      "origin_y": 0.9599686028257457
+    },
+    {
+      "id": "zoro",
+      "name": "Зоро",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_03",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/zoro_1.png",
+      "file": "public/assets/chatgpt/heroes/zoro.png",
+      "url": "assets/chatgpt/heroes/zoro.png",
+      "texture": "cg/heroes/zoro",
+      "sha256": "e697fc3db9950128a3522d9f189ecf20d5fbc11d97aa2519628838668da76a09",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 323,
+        "y": 62,
+        "width": 523,
+        "height": 1233
+      },
+      "anchor_pixel": {
+        "x": 577,
+        "y": 1294
+      },
+      "origin_x": 0.49022939677145283,
+      "origin_y": 0.968562874251497
+    },
+    {
+      "id": "sanji",
+      "name": "Санджи",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_03",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/sanji_1.png",
+      "file": "public/assets/chatgpt/heroes/sanji.png",
+      "url": "assets/chatgpt/heroes/sanji.png",
+      "texture": "cg/heroes/sanji",
+      "sha256": "d7fdf2a8d78e8a08100a27f524f8222dd9918564f556da109e6d77c3e46f32f8",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 338,
+        "y": 80,
+        "width": 467,
+        "height": 1222
+      },
+      "anchor_pixel": {
+        "x": 559,
+        "y": 1301
+      },
+      "origin_x": 0.4749362786745964,
+      "origin_y": 0.9738023952095808
+    },
+    {
+      "id": "luffy",
+      "name": "Луффи",
+      "option": 3,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/luffy_3.png",
+      "file": "public/assets/chatgpt/heroes/luffy.png",
+      "url": "assets/chatgpt/heroes/luffy.png",
+      "texture": "cg/heroes/luffy",
+      "sha256": "3e57774ef12a32420f042d82646385388680d0ce8dc425c8372d42ec3a1ba809",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 314,
+        "y": 75,
+        "width": 536,
+        "height": 1207
+      },
+      "anchor_pixel": {
+        "x": 582,
+        "y": 1281
+      },
+      "origin_x": 0.49447748513169076,
+      "origin_y": 0.9588323353293413
+    },
+    {
+      "id": "yami",
+      "name": "Ями Сукихиро",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/yami_2.png",
+      "file": "public/assets/chatgpt/heroes/yami.png",
+      "url": "assets/chatgpt/heroes/yami.png",
+      "texture": "cg/heroes/yami",
+      "sha256": "3d12db45e7ea5c12879530fe08d57297a3d01a84fd25f38960848a391ab1b6db",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 273,
+        "y": 44,
+        "width": 615,
+        "height": 1257
+      },
+      "anchor_pixel": {
+        "x": 531,
+        "y": 1300
+      },
+      "origin_x": 0.4511469838572642,
+      "origin_y": 0.9730538922155688
+    },
+    {
+      "id": "meliodas",
+      "name": "Мелиодас",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/meliodas_2.png",
+      "file": "public/assets/chatgpt/heroes/meliodas.png",
+      "url": "assets/chatgpt/heroes/meliodas.png",
+      "texture": "cg/heroes/meliodas",
+      "sha256": "9d2293423484f91de8750a5c63588ed4b641ca45f7f0fada42aee4c838030cc7",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 293,
+        "y": 62,
+        "width": 491,
+        "height": 1230
+      },
+      "anchor_pixel": {
+        "x": 538,
+        "y": 1291
+      },
+      "origin_x": 0.4570943075615973,
+      "origin_y": 0.9663173652694611
+    },
+    {
+      "id": "ban",
+      "name": "Бан",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/ban_2.png",
+      "file": "public/assets/chatgpt/heroes/ban.png",
+      "url": "assets/chatgpt/heroes/ban.png",
+      "texture": "cg/heroes/ban",
+      "sha256": "31befa7953fb7b3dee3d6d611fcd300a147c1cc03426bf0ea8cbcf29560a80e8",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 325,
+        "y": 54,
+        "width": 472,
+        "height": 1255
+      },
+      "anchor_pixel": {
+        "x": 560,
+        "y": 1308
+      },
+      "origin_x": 0.47578589634664403,
+      "origin_y": 0.9790419161676647
+    },
+    {
+      "id": "sylphie",
+      "name": "Сильфи",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/sylphie_1.png",
+      "file": "public/assets/chatgpt/heroes/sylphie.png",
+      "url": "assets/chatgpt/heroes/sylphie.png",
+      "texture": "cg/heroes/sylphie",
+      "sha256": "d1e5e29ee98943b76aa67647b3128315bc70845f31019c8816cb631841208b3f",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 333,
+        "y": 109,
+        "width": 463,
+        "height": 1180
+      },
+      "anchor_pixel": {
+        "x": 567,
+        "y": 1288
+      },
+      "origin_x": 0.4817332200509771,
+      "origin_y": 0.9640718562874252
+    },
+    {
+      "id": "roxy",
+      "name": "Рокси",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/roxy_1.png",
+      "file": "public/assets/chatgpt/heroes/roxy.png",
+      "url": "assets/chatgpt/heroes/roxy.png",
+      "texture": "cg/heroes/roxy",
+      "sha256": "09d002189aa5e56406e3732b8fba8cae27b66829675a0bac77086b4abdaa7449",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 258,
+        "y": 90,
+        "width": 694,
+        "height": 1209
+      },
+      "anchor_pixel": {
+        "x": 539,
+        "y": 1298
+      },
+      "origin_x": 0.45794392523364486,
+      "origin_y": 0.9715568862275449
     }
   ],
   "font": {

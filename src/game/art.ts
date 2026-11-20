@@ -3,7 +3,12 @@
 import type { CgHero, CgManifest } from '../core/assets';
 
 /** Герой игры → id героя в каталоге ChatGPT. */
-const HERO_IDS: Record<string, string> = { fern: 'fern', stark: 'stark', megumin: 'megumin', gs: 'goblin_slayer', frieren: 'frieren' };
+const HERO_IDS: Record<string, string> = {
+  frieren: 'frieren', fern: 'fern', stark: 'stark', megumin: 'megumin', gs: 'goblin_slayer',
+  asta: 'asta', guts: 'guts', edward: 'edward', alucard: 'alucard', aqua: 'aqua', darkness: 'darkness',
+  escanor: 'escanor', zoro: 'zoro', sanji: 'sanji', luffy: 'luffy', yami: 'yami', meliodas: 'meliodas',
+  ban: 'ban', sylphy: 'sylphie', roxy: 'roxy',
+};
 
 /** Монстр игры → одобренный пиксельный спрайт. */
 export const ENEMY_ART: Record<string, string> = {
