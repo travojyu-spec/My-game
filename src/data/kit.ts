@@ -38,7 +38,7 @@ export const I = {
   sword: 'ui/icons/sword', shield: 'ui/icons/shield', fire: 'ui/icons/fire', potion: 'ui/icons/potion', bow: 'ui/icons/bow',
 };
 
-export const MAGES = ['megumin', 'fern', 'edward', 'rudeus', 'roxy', 'marcille', 'aqua', 'sylphy', 'yami'];
+export const MAGES = ['megumin', 'fern', 'frieren', 'edward', 'rudeus', 'roxy', 'marcille', 'aqua', 'sylphy', 'yami'];
 
 /** Флаги сыгранных компаний по составу отряда. */
 export function teamFlags(keys: string[]): string[] {
@@ -51,7 +51,7 @@ export function teamFlags(keys: string[]): string[] {
     ['sins', ['meliodas', 'ban', 'escanor']],
     ['mushoku', ['rudeus', 'roxy', 'sylphy']],
     ['bulls', ['asta', 'yami']],
-    ['frieren', ['stark', 'fern']],
+    ['frieren', ['stark', 'fern', 'frieren']],
     ['meshi', ['marcille', 'senshi']],
   ];
   for (const [id, l] of groups) {
@@ -72,7 +72,7 @@ export const TEAM_INFO: { id: string; name: string; heroes: string[]; two: strin
   { id: 'sins', name: 'Семь смертных грехов', heroes: ['meliodas', 'ban', 'escanor'], two: 'Шкала Предела копится на 25% быстрее.', three: 'Мелиодас и Бан +15% урона, Эсканор +0,3 Солнца.' },
   { id: 'mushoku', name: 'Реинкарнация безработного', heroes: ['rudeus', 'roxy', 'sylphy'], two: 'Заклинания на 15% дешевле.', three: '«Урок» Рокси действует на обоих учеников, Сильфи лечит Рудеуса вдвое.' },
   { id: 'bulls', name: 'Чёрные быки', heroes: ['asta', 'yami'], two: '«Превзойди» на Асту даёт +2 Антимагии; Ями +20% по врагам, с которых Аста снял баффы.' },
-  { id: 'frieren', name: 'Отряд Фрирен', heroes: ['stark', 'fern'], two: 'Старк прикрывает Ферн каждый раунд; щит Ферн на Старке +50%.' },
+  { id: 'frieren', name: 'Отряд Фрирен', heroes: ['frieren', 'stark', 'fern'], two: 'Старк прикрывает Ферн каждый раунд; щит Ферн на Старке +50%.', three: 'Вся команда в сборе: Фрирен восстанавливает союзникам 2 маны за ход, все трое +10% урона.' },
   { id: 'meshi', name: 'Подземелье вкусностей', heroes: ['marcille', 'senshi'], two: 'Брезгливость Марсиль проходит; Сэнши начинает бой с +1 ингредиентом.' },
 ];
 

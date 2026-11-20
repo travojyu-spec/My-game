@@ -9,6 +9,7 @@ import {
   loadSave, makeBattle, markDone, newSave, regionOf, tryJoin, writeSave, xpToNext, type BattleResult, type BattleSetup, type Save,
 } from '../game/progress';
 import { canFullscreen, isFullscreen, toggleFullscreen } from '../core/screen';
+import { ENEMY_ART, heroArt } from '../game/art';
 import { loadSettings, saveSettings } from '../core/settings';
 import { sfx } from '../core/sfx';
 
@@ -88,9 +89,21 @@ export class App {
     const e = ENEMIES[key] ?? null;
     const name = d?.name ?? e?.name ?? key;
     const color = d?.color ?? e?.color ?? '#777';
-    const url = this.art('portraits/' + key) ?? this.art('heroes/' + key) ?? (e?.sprite ? this.art(e.sprite) : null);
+    const portrait = this.art('portraits/' + key);
+    const back = !portrait && d ? heroArt(key) : undefined;
+    const url = portrait ?? (back ? this.art(back.texture) : null) ?? this.art('heroes/' + key)
+      ?? (ENEMY_ART[key] ? this.art(ENEMY_ART[key]) : null) ?? (e?.sprite ? this.art(e.sprite) : null);
     const el = h('div', { class: 'u-face' + (big ? ' big' : ''), style: `background-color:${color}` }, [url ? '' : initials(name)]);
-    if (url) el.style.backgroundImage = `url("${url}")`;
+    if (url) {
+      el.style.backgroundImage = `url("${url}")`;
+      // Портретов пока нет: из полного рисунка со спины берём голову и плечи.
+      if (back) {
+        el.style.backgroundSize = `auto ${Math.round((back.height / back.opaque_bounds.height) * 230)}%`;
+        el.style.backgroundPosition = `${Math.round(((back.opaque_bounds.x + back.opaque_bounds.width / 2) / back.width) * 100)}% ${Math.round((back.opaque_bounds.y / back.height) * 100)}%`;
+        el.style.imageRendering = 'auto';
+      } else if (!portrait) el.style.backgroundSize = 'contain';
+      el.style.backgroundRepeat = 'no-repeat';
+    }
     return el;
   }
 
@@ -115,7 +128,7 @@ export class App {
     const has = !!loadSave();
     this.root.replaceChildren(h('div', { class: 'u-title' }, [
       h('h1', { text: 'Перекрёсток миров' }),
-      h('div', { class: 'ver', text: 'Пошаговая партийная RPG · 24 героя · 12 миров' }),
+      h('div', { class: 'ver', text: 'Пошаговая партийная RPG · 25 героев · 12 миров' }),
       h('div', { class: 'row' }, [
         has ? btn('Продолжить', () => { this.s = loadSave(); this.map(); }, 'primary') : null,
         btn('Новая игра', () => {

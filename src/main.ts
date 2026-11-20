@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { assetUrl, embeddedManifest, loadFont, MANIFEST_URL, type Manifest } from './core/assets';
+import { assetUrl, CG_MANIFEST_URL, embeddedCg, embeddedManifest, loadFont, MANIFEST_URL, usedCg, type CgManifest, type Manifest } from './core/assets';
+import { setHeroArt } from './game/art';
 import { canFullscreen, enterFullscreen } from './core/screen';
 import { loadSettings } from './core/settings';
 import { sfx } from './core/sfx';
@@ -15,11 +16,21 @@ function bootMessage(text: string): void {
   if (el) el.textContent = text;
 }
 
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${url}: ${res.status}`);
+  return (await res.json()) as T;
+}
+
+/** Прежний каталог прототипа + утверждённая графика ChatGPT в одном списке загрузки. */
 async function loadManifest(): Promise<Manifest> {
-  if (embeddedManifest) return embeddedManifest;
-  const res = await fetch(MANIFEST_URL, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`manifest.json: ${res.status}`);
-  return (await res.json()) as Manifest;
+  const base = embeddedManifest ?? (await fetchJson<Manifest>(MANIFEST_URL));
+  let cg: CgManifest | null = embeddedCg;
+  if (!cg) cg = await fetchJson<CgManifest>(CG_MANIFEST_URL).catch((err) => { console.warn('Каталог ChatGPT не загрузился', err); return null; });
+  if (!cg) return base;
+  setHeroArt(cg);
+  const have = new Set(base.images.map((i) => i.key));
+  return { ...base, images: [...base.images, ...cg.images.filter((i) => usedCg(i.key) && !have.has(i.key))] };
 }
 
 async function start(): Promise<void> {

@@ -7,9 +7,18 @@ import { HEROES } from '../src/data/kit';
 import '../src/data/heroesA';
 import '../src/data/heroesB';
 import { REGIONS } from '../src/data/regions';
+import type { CgManifest } from '../src/core/assets';
+import { BG_ART, ENEMY_ART, ICON_ART, heroArt, setHeroArt } from '../src/game/art';
 
 const manifest = JSON.parse(readFileSync('public/assets/manifest.json', 'utf8')) as { images: { key: string }[] };
-const have = new Set(manifest.images.map((i) => i.key));
+const cg = JSON.parse(readFileSync('public/assets/chatgpt/manifest.json', 'utf8')) as CgManifest;
+setHeroArt(cg);
+const have = new Set([...manifest.images, ...cg.images].map((i) => i.key));
+// Ключи, закрытые утверждённой графикой ChatGPT через src/game/art.ts
+for (const h of HEROES) if (heroArt(h.key)) have.add(`heroes/${h.key}`);
+for (const [k, v] of Object.entries(ENEMY_ART)) if (have.has(v)) have.add(`enemies/${k}`);
+for (const [k, v] of Object.entries(ICON_ART)) if (have.has(v)) have.add(k);
+for (const [k, v] of Object.entries(BG_ART)) if (have.has(v)) have.add(k);
 const SIZE: Record<string, string> = { s: '22×22', m: '28×32', l: '38×40', xl: '48×54' };
 
 const rows: string[] = [];
@@ -23,9 +32,9 @@ function section(title: string, note: string, items: [string, string][]): void {
   for (const [k, d] of l) rows.push(`| \`${k}\` | ${d} |`);
 }
 
-section('Герои — спрайты в бою', 'Как `heroes/warrior.png`: холст 52×54, фигура ~30 px, вид в 3/4 со спины — герои стоят внизу и смотрят вверх на врагов. Узнаваемый облик по оригиналу.',
+section('Герои — спрайты в бою', 'Как утверждённые `cg/heroes/*` (Ферн, Старк, Мэгумин, Убийца гоблинов, Фрирен): вид со спины в полный рост, полное разрешение, прозрачный фон. Герои стоят внизу и смотрят вверх на врагов. Игра сама уменьшает рисунок под экран — не уменьшать и не сокращать палитру.',
   HEROES.map((h) => [`heroes/${h.key}`, `${h.name} («${h.work}»)`]));
-section('Герои — портреты', 'Квадрат 32×32: лицо и плечи анфас. Используются в меню, таверне, карточке героя.',
+section('Герои — портреты', 'Лицо и плечи анфас, квадрат в полном разрешении. Используются в меню, таверне, карточке героя (сейчас там затылок из спрайта).',
   HEROES.map((h) => [`portraits/${h.key}`, `${h.name} («${h.work}»)`]));
 section('Враги и боссы', 'Вид спереди (враги стоят вверху и смотрят на отряд), как `enemies/goblin.png`. Размер — примерный ориентир, подойдёт и крупнее.',
   ENEMY_LIST.filter((e) => !e.sprite).map((e) => [`enemies/${e.key}`, `${e.name}${e.boss ? ' — БОСС' : ''} («${REGIONS[e.region - 1].work}»), около ${SIZE[e.size]}. ${e.desc}`]));

@@ -8,6 +8,7 @@ import { BASE_H, BASE_W, LAYOUT_EVENT, type Layout, type Viewport } from '../cor
 import { ENEMIES } from '../data/enemies';
 import { HERO } from '../data/kit';
 import type { BattleSetup } from '../game/progress';
+import { BG_ART, ENEMY_ART, ICON_ART, heroArt } from '../game/art';
 import { COLOR, FONT_BODY, FONT_COMPACT, HEX, LINE_16, outlined, text } from '../ui/theme';
 import { Button, panel } from '../ui/widgets';
 
@@ -18,7 +19,7 @@ const CELL = 24;
 const CARD_W = 118;
 const BAR_H = 42;
 const SIDE_BTN = 32;
-const HERO_Y = 196;
+const HERO_Y = 200;
 
 const SIZE: Record<string, [number, number]> = { s: [22, 22], m: [28, 32], l: [38, 40], xl: [48, 54] };
 
@@ -177,18 +178,60 @@ export class BattleScene extends Phaser.Scene {
     return tk;
   }
 
-  private textureFor(u: Unit): { key: string; ph: boolean; w: number; h: number } {
+  private textureFor(u: Unit): { key: string; ph: boolean; w: number; h: number; scale: number; ox: number; oy: number } {
     if (u.side === 'hero') {
+      const art = heroArt(u.key);
+      if (art && this.textures.exists(art.texture)) return this.hdHero(u.key, art.texture, art);
       const k = 'heroes/' + u.key;
-      if (this.textures.exists(k)) { const s = this.textures.get(k).getSourceImage(); return { key: k, ph: false, w: s.width, h: s.height }; }
-      return { key: this.placeholder(u.key, 26, 36, HERO[u.key]?.color ?? '#888'), ph: true, w: 26, h: 36 };
+      if (this.textures.exists(k)) { const s = this.textures.get(k).getSourceImage(); return { key: k, ph: false, w: s.width, h: s.height, scale: 1, ox: 0.5, oy: 1 }; }
+      return { key: this.placeholder(u.key, 26, 36, HERO[u.key]?.color ?? '#888'), ph: true, w: 26, h: 36, scale: 1, ox: 0.5, oy: 1 };
     }
     const d = ENEMIES[u.key];
-    for (const k of [d?.sprite, 'enemies/' + u.key]) {
-      if (k && this.textures.exists(k)) { const s = this.textures.get(k).getSourceImage(); return { key: k, ph: false, w: s.width, h: s.height }; }
+    for (const k of [ENEMY_ART[u.key], d?.sprite, 'enemies/' + u.key]) {
+      if (k && this.textures.exists(k)) { const s = this.textures.get(k).getSourceImage(); return { key: k, ph: false, w: s.width, h: s.height, scale: 1, ox: 0.5, oy: 1 }; }
     }
     const [w, h] = SIZE[d?.size ?? 'm'];
-    return { key: this.placeholder(u.key, w, h, d?.color ?? '#888'), ph: true, w, h };
+    return { key: this.placeholder(u.key, w, h, d?.color ?? '#888'), ph: true, w, h, scale: 1, ox: 0.5, oy: 1 };
+  }
+
+  /**
+   * Крупный оригинал героя уменьшается при загрузке боя до размера на экране этого телефона
+   * (плавное ступенчатое уменьшение), сам PNG не меняется.
+   */
+  private hdHero(key: string, tex: string, art: NonNullable<ReturnType<typeof heroArt>>) {
+    const unit = this.viewport.layout.unit;
+    const figure = 44; // высота фигуры в игровых единицах
+    const f = (figure * unit) / art.opaque_bounds.height;
+    const W = Math.max(1, Math.round(art.width * f));
+    const H = Math.max(1, Math.round(art.height * f));
+    const tk = `hd/${key}@${W}x${H}`;
+    if (!this.textures.exists(tk)) {
+      let src: CanvasImageSource = this.textures.get(tex).getSourceImage() as HTMLImageElement;
+      let sw = art.width;
+      let sh = art.height;
+      while (sw / 2 > W) {
+        const c = document.createElement('canvas');
+        c.width = Math.round(sw / 2);
+        c.height = Math.round(sh / 2);
+        const cx = c.getContext('2d')!;
+        cx.imageSmoothingEnabled = true;
+        cx.imageSmoothingQuality = 'high';
+        cx.drawImage(src, 0, 0, c.width, c.height);
+        src = c; sw = c.width; sh = c.height;
+      }
+      const t = this.textures.createCanvas(tk, W, H)!;
+      const cx = t.getContext();
+      cx.imageSmoothingEnabled = true;
+      cx.imageSmoothingQuality = 'high';
+      cx.drawImage(src, 0, 0, W, H);
+      t.refresh();
+      t.setFilter(Phaser.Textures.FilterMode.LINEAR);
+    }
+    const k = 1 / unit;
+    return {
+      key: tk, ph: false, scale: k, ox: art.origin_x, oy: art.origin_y,
+      w: Math.round(art.opaque_bounds.width * f * k), h: Math.round(figure),
+    };
   }
 
   // ---------- Мир ----------
@@ -202,7 +245,8 @@ export class BattleScene extends Phaser.Scene {
     this.fxLayer = this.add.container(0, 0);
     this.world.add([this.bgLayer, this.groundLayer, this.unitLayer, this.overLayer, this.fxLayer]);
 
-    const bg = this.data0.setup.bg;
+    const bg0 = this.data0.setup.bg;
+    const bg = bg0 && BG_ART[bg0] && this.textures.exists(BG_ART[bg0]) ? BG_ART[bg0] : bg0;
     if (bg && this.textures.exists(bg)) {
       for (let gy = -1; gy <= 1; gy++) for (let gx = -1; gx <= 1; gx++) {
         if (gx === 0 && gy === 0) continue;
@@ -256,7 +300,7 @@ export class BattleScene extends Phaser.Scene {
     const ring = this.add.graphics();
     this.groundLayer.add([shadow, ring]);
     const body = this.add.container(0, 0);
-    const img = this.add.image(0, 0, tex.key).setOrigin(0.5, 1);
+    const img = this.add.image(0, 0, tex.key).setOrigin(tex.ox, tex.oy).setScale(tex.scale);
     body.add(img);
     if (tex.ph) {
       const t = outlined(this, 0, -Math.round(tex.h / 2), initials(u.name), FONT_COMPACT, COLOR.light).setOrigin(0.5, 0.5);
@@ -295,7 +339,7 @@ export class BattleScene extends Phaser.Scene {
       const v = this.views.get(u.uid)!;
       if (v.gone && !u.alive) continue;
       const big = ENEMIES[u.key]?.size === 'xl';
-      this.placeView(v, 240 + (u.pos - (m - 1) / 2) * sp, big ? 148 : 138 + (u.pos % 2 ? 9 : 0), animate);
+      this.placeView(v, 240 + (u.pos - (m - 1) / 2) * sp, big ? 138 : 127 + (u.pos % 2 ? 9 : 0), animate);
     }
     this.unitLayer.sort('y');
   }
@@ -494,14 +538,16 @@ export class BattleScene extends Phaser.Scene {
     list.forEach((a, i) => {
       let label = a.label;
       if (a.kind === 'item') label = `${a.label} ${this.e.s.items[a.id] ?? 0}`;
-      const icon = this.textures.exists(a.icon) ? a.icon : a.kind === 'item' ? 'ui/icons/potion' : a.kind === 'ult' ? 'ui/icons/fire' : 'ui/icons/sword';
+      let icon = this.textures.exists(a.icon) ? a.icon : a.kind === 'item' ? 'ui/icons/potion' : a.kind === 'ult' ? 'ui/icons/fire' : 'ui/icons/sword';
+      if (ICON_ART[icon] && this.textures.exists(ICON_ART[icon])) icon = ICON_ART[icon];
       const b = new Button(this, { width: w, height: BAR_H, label, icon, pad: 2, stack: true }, () => this.onAbilityTap(i));
       b.setDisabled(!!this.e.check(u, a));
       if (a.kind === 'ult' && !this.e.check(u, a)) b.setSelected(true);
       this.abilityButtons.push(b);
       this.hud.add(b);
     });
-    const bag = new Button(this, { width: w, height: BAR_H, label: this.bagMode ? 'Назад' : 'Сумка', icon: this.bagMode ? 'ui/icons/sword' : 'ui/icons/potion', pad: 2, stack: true }, () => {
+    const bagIcon = this.bagMode ? 'ui/icons/sword' : 'ui/icons/potion';
+    const bag = new Button(this, { width: w, height: BAR_H, label: this.bagMode ? 'Назад' : 'Сумка', icon: this.textures.exists(ICON_ART[bagIcon]) ? ICON_ART[bagIcon] : bagIcon, pad: 2, stack: true }, () => {
       if (this.phase !== 'input' || this.isPaused) return;
       sfx.play('tap');
       this.bagMode = !this.bagMode;

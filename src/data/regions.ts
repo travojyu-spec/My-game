@@ -86,11 +86,11 @@ export const REGIONS: Region[] = [
     pool: ['demon_mage', 'mimic', 'headless'],
     bounty: { enemy: 'demon_mage', count: 6 },
     stages: [
-      S('town', 'Северная деревня', { join: 'fern', joinText: 'Девушка в фиолетовом молча кланяется: «Ферн. Фрирен-сама проспала, так что я пойду с вами».' }),
+      S('town', 'Северная деревня', { join: 'fern', joinText: 'Девушка в фиолетовом молча кланяется: «Ферн. Фрирен-сама опять проспала, догонит позже. Я пойду с вами».' }),
       S('battle', 'Говорящие демоны', { enemies: ['demon_mage', 'demon_mage'] }),
       S('event', 'Сундук в руинах', { event: 'mimic' }),
       S('battle', 'Деревня под ударом', { enemies: ['headless', 'headless', 'demon_mage'], join: 'stark', joinText: 'Парень с топором дрожит, но не отходит от раненых: «Я Старк. Я… не убегу».' }),
-      S('camp', 'Мельница'),
+      S('camp', 'Мельница', { join: 'frieren', joinText: 'На мельнице, укутавшись в одеяло, спит эльфийка. Ферн: «Фрирен-сама, вставайте. Демоны». Фрирен зевает: «Ладно. Пять минут — и иду»' }),
       S('battle', 'Дорога к замку', { enemies: ['mimic', 'demon_mage', 'headless'] }),
       S('elite', 'Три ученика', { enemies: ['demon_mage', 'demon_mage', 'demon_mage'] }),
       S('boss', 'Аура Гильотина', { enemies: ['headless', 'aura', 'headless'] }),

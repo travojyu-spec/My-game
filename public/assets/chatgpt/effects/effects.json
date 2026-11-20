@@ -1,0 +1,98 @@
+{
+  "status": "approved",
+  "frame": {
+    "width": 48,
+    "height": 48
+  },
+  "anchor": {
+    "x": 24,
+    "y": 24
+  },
+  "frames_per_effect": 1,
+  "choices": {
+    "attack": [
+      1,
+      2
+    ],
+    "fire": [
+      1,
+      2
+    ],
+    "guard": [
+      1
+    ],
+    "heal": [
+      1
+    ]
+  },
+  "effects": [
+    {
+      "id": "attack",
+      "role": "Удар",
+      "option": 1,
+      "file": "effects/attack_1.png",
+      "texture": "cg/effects/attack_1",
+      "url": "assets/chatgpt/effects/attack_1.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "id": "attack",
+      "role": "Удар",
+      "option": 2,
+      "file": "effects/attack_2.png",
+      "texture": "cg/effects/attack_2",
+      "url": "assets/chatgpt/effects/attack_2.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "id": "fire",
+      "role": "Огонь",
+      "option": 1,
+      "file": "effects/fire_1.png",
+      "texture": "cg/effects/fire_1",
+      "url": "assets/chatgpt/effects/fire_1.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "id": "fire",
+      "role": "Огонь",
+      "option": 2,
+      "file": "effects/fire_2.png",
+      "texture": "cg/effects/fire_2",
+      "url": "assets/chatgpt/effects/fire_2.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "id": "guard",
+      "role": "Защита",
+      "option": 1,
+      "file": "effects/guard_1.png",
+      "texture": "cg/effects/guard_1",
+      "url": "assets/chatgpt/effects/guard_1.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "id": "heal",
+      "role": "Лечение",
+      "option": 1,
+      "file": "effects/heal_1.png",
+      "texture": "cg/effects/heal_1",
+      "url": "assets/chatgpt/effects/heal_1.png",
+      "width": 48,
+      "height": 48
+    }
+  ],
+  "suggested_use": {
+    "attack_1": "Вспышка попадания",
+    "attack_2": "Альтернативная вспышка попадания",
+    "fire_2": "Огненный снаряд при полёте",
+    "fire_1": "Огненная вспышка при попадании",
+    "guard_1": "Эффект защиты на союзнике",
+    "heal_1": "Эффект лечения на союзнике"
+  }
+}

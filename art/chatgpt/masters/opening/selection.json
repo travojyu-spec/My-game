@@ -1,0 +1,15 @@
+{
+  "chosen_by": "ChatGPT",
+  "authorization": "Пользователь: «Да похер. Сделай всё сам».",
+  "variant": 1,
+  "assets": {
+    "hub_ground": "dcab3a77-1baf-4db5-aa7e-d072062ca20a",
+    "inn": "096fc588-76dc-4747-bf60-3d6829bd7082",
+    "quest_board": "94465a6a-a5a5-44cb-97af-a54c7dc8017b",
+    "ranger": "5382b799-31b3-4c64-b808-c6d3e4de0fe3",
+    "healer": "21ec4f69-e418-426d-a244-61a7526860a9",
+    "gold": "a40f4696-d417-457e-b172-7198766198b2",
+    "bow": "d0b04a9b-4fc7-4a53-8e85-7136e460b57a"
+  },
+  "processing": "Original ImageGen PNG files, copied byte for byte. Geometry measured only, pixels unchanged."
+}

@@ -292,6 +292,7 @@ export class Engine {
     const k = this.kit(src).hooks.dealMult;
     if (k) m *= k(this, src, t, o);
     if (src.side === 'hero' && this.byKey('kamina') && src.key !== 'kamina') m *= 1.05;
+    if (this.team('frieren3') && ['frieren', 'fern', 'stark'].includes(src.key)) m *= 1.1;
     return Math.max(0.1, m);
   }
   typeMult(t: Unit, o: HitOpts): number {

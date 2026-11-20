@@ -9,7 +9,8 @@
     "build:single": "tsc --noEmit && vite build --mode single",
     "preview": "vite preview --host",
     "sim": "tsx scripts/simulate.ts",
-    "assets": "tsx scripts/assets-todo.ts"
+    "assets": "tsx scripts/assets-todo.ts",
+    "test": "tsx scripts/check-assets.ts && tsx scripts/simulate.ts 3 1"
   },
   "dependencies": {
     "phaser": "4.2.1"

@@ -29,6 +29,9 @@ jobs:
       - name: Установка зависимостей
         run: npm ci
 
+      - name: Проверка правил и ресурсов
+        run: npm test
+
       - name: Сборка
         run: |
           npm run build

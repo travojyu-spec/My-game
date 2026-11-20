@@ -716,3 +716,56 @@ hero({
     resLine: (_e, u) => `Ингредиенты: ${u.res.ingr ?? 0}`,
   },
 });
+
+// ===================== Фрирен =====================
+function frierenBolt(e: Engine, u: Unit, t: Unit, p: number, single = true): void {
+  const demon = t.tags.includes('demon');
+  const k = demon ? (N(u, 'A4') ? 1.6 : N(u, 'A1') ? 1.5 : 1.3) : 1;
+  e.hit(u, t, p * k, { magic: true, single, pierce: N(u, 'A2') ? 0.25 : 0, ignoreResist: demon && N(u, 'A4') });
+}
+hero({
+  key: 'frieren', name: 'Фрирен', nameAcc: 'Фрирен', role: 'mage', work: 'Провожающая в последний путь Фрирен', color: '#d8dde6',
+  hp: 85, atk: 13, def: 0.05, spd: 6, mp: 60, mpRegen: 7, mpName: 'Мана', tags: ['female'], threat: 0.6,
+  passive: 'Убийца демонов: тысячу лет скрывает ману — демоны её недооценивают, её магия бьёт их на 30% сильнее.',
+  mods: { C1: { mp: 20 } },
+  tree: {
+    A: ['Убийца демонов', [node('Опыт охоты', 'По демонам +50%'), node('Пробой', 'Зольтраак пробивает 25% брони'), node('Два луча', 'Зольтраак бьёт ещё одного врага'), node('Знание врага', 'По демонам +60% и без сопротивлений'), node('Конец Ауры', 'Ульта добивает демонов ниже 25% здоровья')]],
+    B: ['Защитная магия', [node('Крепче', 'Щит +30%'), node('Очищение', 'Щит снимает негатив'), node('Отражение', 'Щит возвращает 20% поглощённого'), node('Наготове', 'Бой начинается со щитом на отряде'), node('Барьер древних', 'Раз за бой отряд получает блок удара, когда кто-то ниже 30%')]],
+    C: ['Тысячелетний маг', [node('Запас', '+20 маны'), node('Глубокий анализ', 'Анализ даёт уязвимость +35%'), node('Сокрытие маны', 'В начале боя враги ослаблены на 2 хода'), node('Спокойствие', '+3 маны в ход'), node('Тысяча лет опыта', 'Каждый третий раунд — дополнительный ход')]],
+  },
+  abilities: () => [
+    { id: 'fr_zolt', name: 'Зольтраак', label: 'Зольтраак', icon: 'icons/zoltraak', kind: 'basic', target: 'enemy', magic: true, fx: 'magic', desc: 'Убийственная магия: магический луч, по демонам сильнее.',
+      run: (e, u2, t) => { frierenBolt(e, u2, t!, 1.2); if (N(u2, 'A3')) { const o = e.enemies().find((x) => x !== t); if (o) frierenBolt(e, u2, o, 0.8, false); } } },
+    { id: 'fr_shield', name: 'Защитная магия', label: 'Щит', icon: 'ui/icons/shield', kind: 'skill', target: 'allAllies', cost: 12, magic: true, fx: 'buff', desc: 'Щит всему отряду.',
+      run: (e, u2) => frierenShield(e, u2) },
+    { id: 'fr_scan', name: 'Анализ', label: 'Анализ', icon: 'icons/analysis', kind: 'skill', target: 'enemyAny', cost: 6, cd: 2, magic: true, fx: 'magic', desc: 'Разбирает чужую магию: враг уязвим (+25% урона по нему) 3 хода и теряет усиление.',
+      run: (e, u2, t) => { e.add(t!, 'vuln', 3, N(u2, 'C2') ? 35 : 25); e.dispel(t!, 1); } },
+    { id: 'fr_ult', name: 'Освобождение маны', label: 'Мана', icon: 'icons/manarelease', kind: 'ult', target: 'enemy', magic: true, fx: 'aoe', desc: 'Снимает сокрытие маны: огромный луч по цели и удар по остальным.',
+      run: (e, u2, t) => {
+        e.say('Фрирен освобождает ману!');
+        const ex = N(u2, 'A5') && t!.tags.includes('demon') ? 0.25 : 0;
+        e.hit(u2, t!, 4 * (t!.tags.includes('demon') ? 1.3 : 1), { magic: true, ignoreShield: true, sure: true, execute: ex });
+        for (const x of e.enemies().filter((y) => y !== t)) e.hit(u2, x, 1.5, { magic: true, ignoreShield: true, sure: true, single: false });
+      } },
+  ] satisfies AL as AL,
+  hooks: {
+    battleStart: (e, u) => {
+      if (N(u, 'B4')) frierenShield(e, u, 0.6);
+      if (N(u, 'C3')) for (const x of e.enemies()) e.add(x, 'atkDown', 2, 20);
+    },
+    turnStart: (e, u) => {
+      if (N(u, 'C4')) e.mp(u, 3);
+      if (e.team('frieren3')) for (const x of e.alliesOf(u)) if (x !== u) e.mp(x, 2);
+      if (N(u, 'C5') && e.s.round % 3 === 0 && u.res.c5 !== e.s.round) { u.res.c5 = e.s.round; e.extraTurn(u); }
+    },
+    onPartyDamaged: (e, u, v) => {
+      if (N(u, 'B5') && !u.res.b5 && v.hp < v.maxHp * 0.3) { u.res.b5 = 1; for (const x of e.alliesOf(u)) e.add(x, 'block', 99, 1); e.say('Барьер древних!'); }
+    },
+  },
+});
+function frierenShield(e: Engine, u: Unit, k = 1): void {
+  for (const x of e.alliesOf(u)) {
+    e.add(x, 'shield', 99, Math.round(u.atk * 1.8 * k * (N(u, 'B1') ? 1.3 : 1)), N(u, 'B3') ? { reflect: 0.2 } : undefined);
+    if (N(u, 'B2')) e.cleanse(x);
+  }
+}

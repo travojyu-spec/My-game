@@ -1,0 +1,76 @@
+{
+  "style": [
+    {
+      "label": "Knights of Pen & Paper 2 publisher screenshot",
+      "url": "https://images.ctfassets.net/u73tyf0fa8v1/46f97CQum5QMhk76IiX5XS/61a0dd1cfe63ad0ce87af635a061a793/KPKP02GSK-MASTER_screenshots.jpg?q=75&w=3840",
+      "role": "coarse pixel technique and hero proportions"
+    }
+  ],
+  "frieren": [
+    {
+      "label": "Anime official full-body art",
+      "url": "https://frieren-anime.jp/wp-content/uploads/2023/08/chara01_full1.png"
+    },
+    {
+      "label": "Production turnaround: rear outfit and hair",
+      "url": "https://img.mandarake.co.jp/aucimg/9/4/7/6/0002659476.jpeg"
+    },
+    {
+      "label": "Anime character and staff design sheet (reposted scan)",
+      "url": "https://i.pinimg.com/originals/bf/0b/5a/bf0b5a716c2579860fb8d678847a33cd.jpg"
+    }
+  ],
+  "fern": [
+    {
+      "label": "Anime model sheet (reposted)",
+      "url": "https://static.zerochan.net/Fern.%28Sousou.no.Frieren%29.full.3993522.jpg"
+    },
+    {
+      "label": "Anime hair clasp close-up (reposted frame)",
+      "url": "https://i.pinimg.com/originals/a4/f4/05/a4f405edfff0b3fc1d1f04c59b6ebef7.png"
+    },
+    {
+      "label": "Anime staff close-up (reposted frame)",
+      "url": "https://stat.ameba.jp/user_images/20240327/15/aopman2/3f/f3/p/o0964065615418065867.png"
+    },
+    {
+      "label": "Full staff replica, checked against anime frame for shape",
+      "url": "https://swordslice.com/cdn/shop/files/FS308__42855.jpg?v=1731942320&width=533"
+    }
+  ],
+  "stark": [
+    {
+      "label": "Anime official art",
+      "url": "https://frieren-anime.jp/wp-content/uploads/2023/08/chara03_full1.png"
+    },
+    {
+      "label": "Anime model sheet (reposted)",
+      "url": "https://static.zerochan.net/Stark.full.3993524.jpg"
+    },
+    {
+      "label": "Licensed Nendoroid axe accessory photo",
+      "url": "https://baseec-img-mng.akamaized.net/images/item/origin/99ea728d61c34cb52fabf2849712017a.jpg?im=Resize%2Cwidth%3D1200%2Ctype%3Dnormal&imformat=generic&q=90"
+    }
+  ],
+  "megumin": [
+    {
+      "label": "Studio DEEN anime rear model",
+      "url": "https://i0.wp.com/www.deen.co.jp/deen/wp-content/uploads/2016/01/d_megumin02_settei.jpg"
+    },
+    {
+      "label": "Official figma blog, rear and staff",
+      "url": "https://ameblo.jp/figma/entry-12399204716.html",
+      "image": "https://stat.ameba.jp/user_images/20180820/17/figma/bf/e3/j/o1124128014251205574.jpg"
+    }
+  ],
+  "goblin_slayer": [
+    {
+      "label": "Anime first-season official art",
+      "url": "https://goblinslayer.jp/1st/images/char-goblin.png"
+    },
+    {
+      "label": "Licensed figma rear photo",
+      "url": "https://shumistore.com/cdn/shop/products/M065821_1024x.png?v=1645171402"
+    }
+  ]
+}

@@ -27,6 +27,18 @@ export interface Manifest {
 }
 
 export const MANIFEST_URL = 'assets/manifest.json';
+export const CG_MANIFEST_URL = 'assets/chatgpt/manifest.json';
+
+/** Герой из поставки ChatGPT: крупный оригинал, опорная точка и непрозрачная область. */
+export interface CgHero {
+  id: string; name: string; texture: string; width: number; height: number;
+  opaque_bounds: { x: number; y: number; width: number; height: number };
+  origin_x: number; origin_y: number; facing?: string;
+}
+export interface CgManifest { images: (ManifestImage & { sha256?: string })[]; heroes: CgHero[]; variants: Record<string, string[]> }
+export const embeddedCg: CgManifest | null = embedded?.cg ?? null;
+/** Ключи каталога ChatGPT, которые игра загружает. */
+export const usedCg = (key: string) => !key.startsWith('cg/opening/');
 
 /** Встроенные ассеты есть только в однофайловой сборке. */
 export const embeddedManifest: Manifest | null = embedded?.manifest ?? null;

@@ -5,6 +5,8 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 
 const PUBLIC = resolve(import.meta.dirname, 'public');
 const VIRTUAL = 'virtual:embedded-assets';
+/** Из каталога ChatGPT игре нужны герои, одобренный набор и эффекты (картинки вступления — нет). */
+const USED_CG = (key: string) => !key.startsWith('cg/opening/');
 
 const MIME: Record<string, string> = { png: 'image/png', ttf: 'font/ttf', json: 'application/json' };
 
@@ -28,11 +30,14 @@ function embeddedAssets(single: boolean): Plugin {
     load(id) {
       if (id !== '\0' + VIRTUAL) return null;
       if (!single) return 'export default null;';
+      // Два каталога: прежние ассеты прототипа и утверждённая графика ChatGPT.
       const manifest = JSON.parse(readFileSync(resolve(PUBLIC, 'assets/manifest.json'), 'utf8'));
+      const cg = JSON.parse(readFileSync(resolve(PUBLIC, 'assets/chatgpt/manifest.json'), 'utf8'));
       const files: Record<string, string> = {};
       for (const img of manifest.images) files[img.url] = dataUri(img.url);
+      for (const img of cg.images) if (USED_CG(img.key)) files[img.url] = dataUri(img.url);
       files[manifest.font.url] = dataUri(manifest.font.url);
-      return `export default ${JSON.stringify({ manifest, files })};`;
+      return `export default ${JSON.stringify({ manifest, cg, files })};`;
     },
     transformIndexHtml(html) {
       if (!single) return html;
