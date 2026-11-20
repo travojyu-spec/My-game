@@ -399,6 +399,93 @@
       },
       "origin_x": 0.4749362786745964,
       "origin_y": 0.9738023952095808
+    },
+    {
+      "id": "luffy",
+      "name": "Луффи",
+      "option": 3,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/luffy_3.png",
+      "file": "public/assets/chatgpt/heroes/luffy.png",
+      "url": "assets/chatgpt/heroes/luffy.png",
+      "texture": "cg/heroes/luffy",
+      "sha256": "3e57774ef12a32420f042d82646385388680d0ce8dc425c8372d42ec3a1ba809",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 314,
+        "y": 75,
+        "width": 536,
+        "height": 1207
+      },
+      "anchor_pixel": {
+        "x": 582,
+        "y": 1281
+      },
+      "origin_x": 0.49447748513169076,
+      "origin_y": 0.9588323353293413
+    },
+    {
+      "id": "yami",
+      "name": "Ями Сукихиро",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/yami_2.png",
+      "file": "public/assets/chatgpt/heroes/yami.png",
+      "url": "assets/chatgpt/heroes/yami.png",
+      "texture": "cg/heroes/yami",
+      "sha256": "3d12db45e7ea5c12879530fe08d57297a3d01a84fd25f38960848a391ab1b6db",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 273,
+        "y": 44,
+        "width": 615,
+        "height": 1257
+      },
+      "anchor_pixel": {
+        "x": 531,
+        "y": 1300
+      },
+      "origin_x": 0.4511469838572642,
+      "origin_y": 0.9730538922155688
+    },
+    {
+      "id": "meliodas",
+      "name": "Мелиодас",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_04",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/meliodas_2.png",
+      "file": "public/assets/chatgpt/heroes/meliodas.png",
+      "url": "assets/chatgpt/heroes/meliodas.png",
+      "texture": "cg/heroes/meliodas",
+      "sha256": "9d2293423484f91de8750a5c63588ed4b641ca45f7f0fada42aee4c838030cc7",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 293,
+        "y": 62,
+        "width": 491,
+        "height": 1230
+      },
+      "anchor_pixel": {
+        "x": 538,
+        "y": 1291
+      },
+      "origin_x": 0.4570943075615973,
+      "origin_y": 0.9663173652694611
     }
   ]
 }
