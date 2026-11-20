@@ -20,7 +20,10 @@
     "sanji": 1,
     "luffy": 3,
     "yami": 2,
-    "meliodas": 2
+    "meliodas": 2,
+    "ban": 2,
+    "sylphie": 1,
+    "roxy": 1
   },
   "source_images": "Original ImageGen PNGs copied byte-for-byte from the corrected full-resolution candidate set",
   "rejected_processing": "Automatic 64x80 downsampled exports and 32-color quantization were rejected by the user; never use them",
@@ -507,6 +510,93 @@
       },
       "origin_x": 0.4570943075615973,
       "origin_y": 0.9663173652694611
+    },
+    {
+      "id": "ban",
+      "name": "Бан",
+      "option": 2,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/ban_2.png",
+      "file": "public/assets/chatgpt/heroes/ban.png",
+      "url": "assets/chatgpt/heroes/ban.png",
+      "texture": "cg/heroes/ban",
+      "sha256": "31befa7953fb7b3dee3d6d611fcd300a147c1cc03426bf0ea8cbcf29560a80e8",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 325,
+        "y": 54,
+        "width": 472,
+        "height": 1255
+      },
+      "anchor_pixel": {
+        "x": 560,
+        "y": 1308
+      },
+      "origin_x": 0.47578589634664403,
+      "origin_y": 0.9790419161676647
+    },
+    {
+      "id": "sylphie",
+      "name": "Сильфи",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/sylphie_1.png",
+      "file": "public/assets/chatgpt/heroes/sylphie.png",
+      "url": "assets/chatgpt/heroes/sylphie.png",
+      "texture": "cg/heroes/sylphie",
+      "sha256": "d1e5e29ee98943b76aa67647b3128315bc70845f31019c8816cb631841208b3f",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 333,
+        "y": 109,
+        "width": 463,
+        "height": 1180
+      },
+      "anchor_pixel": {
+        "x": 567,
+        "y": 1288
+      },
+      "origin_x": 0.4817332200509771,
+      "origin_y": 0.9640718562874252
+    },
+    {
+      "id": "roxy",
+      "name": "Рокси",
+      "option": 1,
+      "status": "approved",
+      "approved_date": "2026-11-20",
+      "batch": "roster_wave_05",
+      "facing": "back",
+      "frames": 1,
+      "master": "art/chatgpt/masters/heroes/roxy_1.png",
+      "file": "public/assets/chatgpt/heroes/roxy.png",
+      "url": "assets/chatgpt/heroes/roxy.png",
+      "texture": "cg/heroes/roxy",
+      "sha256": "09d002189aa5e56406e3732b8fba8cae27b66829675a0bac77086b4abdaa7449",
+      "width": 1177,
+      "height": 1336,
+      "opaque_bounds": {
+        "x": 258,
+        "y": 90,
+        "width": 694,
+        "height": 1209
+      },
+      "anchor_pixel": {
+        "x": 539,
+        "y": 1298
+      },
+      "origin_x": 0.45794392523364486,
+      "origin_y": 0.9715568862275449
     }
   ],
   "other_visuals": {
@@ -587,6 +677,6 @@
     "body_size": 24
   },
   "party_limit": 4,
-  "latest_user_choice_quote": "Луффи 3\nЯми 2\nМелиодас 2",
+  "latest_user_choice_quote": "Бан 2\nСильфи 1\nРокси 1",
   "publication_rule": "GitHub: only user-approved selected originals, never candidate sheets or rejected variants."
 }
